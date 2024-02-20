@@ -1,0 +1,8 @@
+/*light mode*/
+:root {
+    --main-bg-color: #FAF9F6; 
+    --main-primary-text-color: #333333;
+    --button-bg-color: #2196F3; 
+    --button-text-color: #FFFFFF; 
+    --button-hover-color: #1976D2;
+}

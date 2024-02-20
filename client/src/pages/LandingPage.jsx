@@ -1,7 +1,9 @@
+import lightmode from "../styles/lightmode.module.css"
+
 function LandingPage () {
   return (
-    <div>
-      <h1>Hello, World!</h1>
+    <div className={lightmode}>
+   
     </div>
   )
 }

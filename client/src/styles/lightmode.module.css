@@ -1,0 +1,25 @@
+@import "../index.css";
+
+body {
+  background-color: var(--main-bg-color);
+  color: var(--main-primary-text-color);
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border-radius: 2px;
+  text-align: center;
+  padding: 5px;
+  border: 0;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: var(--button-hover-color);
+}
