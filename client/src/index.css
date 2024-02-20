@@ -6,3 +6,7 @@
     --button-text-color: #FFFFFF; 
     --button-hover-color: #1976D2;
 }
+body{
+    margin: 0;
+    padding: 0;
+}
