@@ -1,0 +1,32 @@
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    height: 50vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 30px 0;
+}
+
+.text-content {
+    flex: 1;
+    margin-right: 50px;
+}
+
+.text-content p {
+    width: 80%;
+}
+
+img {
+    width: 600px;
+    height: 425px;
+}
+
+.read-more {
+    text-decoration: underline;
+    color: var(--button-bg-color);
+}
+
+.read-more:hover {
+    color: var(--button-hover-color);
+    transition: ease-in-out 0.3s;
+}
