@@ -1,0 +1,44 @@
+footer{
+    max-height: 150px;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footerContent {
+    max-height: fit-content;
+    max-width: 90vw;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap row;
+    align-items: center;
+}
+
+.footerTop {
+    width: 90vw;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footerRight img{
+    padding: 0 10px 0 10px;
+    display: inline-block;
+}
+
+.footerLeft a{
+    padding: 0 10px 0 10px;
+    display: inline-block;
+}
+
+footer img{
+    max-width: 30px;
+    max-height: 30px;
+}
+
+hr {
+    width: 90%;
+    position: absolute;
+}
