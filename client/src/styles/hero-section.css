@@ -1,7 +1,7 @@
 .hero-title {
     text-align: center;
     margin-top: 0;
-    padding-top: 3vw;
+    padding-top: 5vw;
     font-size: 60px;
 }
 
@@ -10,7 +10,7 @@
     max-width: 600px;
     text-align: center;
     margin: 0 auto;
-    padding-top: 60vh;
+    padding-top: 55vh;
 }
 
 .hero-buy {
@@ -39,13 +39,13 @@
 
 @media (max-width: 1200px) {
     .hero-title {
-        padding-top: 17vh;
+        padding-top: 14vh;
         font-size: 60px;
     }
 
     .hero-description {
         width: 90%;
-        padding-top: 50vh; /* Adjusted for consistency */
+        padding-top: 50vh;
     }
 
     .hero-buy button {
@@ -62,7 +62,24 @@
 
     .hero-description {
         width: 90%;
-        padding-top: 50vh; /* Adjusted for consistency */
+        padding-top: 50vh;
+    }
+
+    .hero-buy button {
+        padding: 12px 40px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-title {
+        padding-top: 14vh;
+        font-size: 60px;
+    }
+
+    .hero-description {
+        width: 90%;
+        padding-top: 45vh;
     }
 
     .hero-buy button {
