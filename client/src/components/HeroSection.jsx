@@ -4,7 +4,7 @@ import '../styles/hero-section.css'
 
 function HeroSection() {
   return (
-    <div>
+    <div className="hero-image">
         <h1 className="hero-title">2KIN</h1>
         <p className="hero-description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
