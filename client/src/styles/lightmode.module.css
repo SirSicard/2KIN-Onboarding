@@ -5,6 +5,10 @@ body {
   color: var(--main-primary-text-color);
 }
 
+main {
+min-height: calc(100vh - 100px - 60px);
+}
+
 a {
   text-decoration: none;
   color: #333333;

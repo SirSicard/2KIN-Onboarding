@@ -1,10 +1,11 @@
 import lightmode from "../styles/lightmode.module.css"
 
-function LandingPage () {
+function LandingPage() {
   return (
-    <div className={lightmode}>
-   
+    <div>
+
     </div>
+
   )
 }
 

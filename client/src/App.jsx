@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"
 import lightmode from "./styles/lightmode.module.css"
 
 function App() {
@@ -11,6 +12,10 @@ function App() {
       <main className={lightmode}>
       <Outlet />
       </main>
+
+      <Footer />
+
+      
     </>
   );
 }
