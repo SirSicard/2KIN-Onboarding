@@ -1,0 +1,15 @@
+.search-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  #search {
+    padding-right: 30px;
+  }
+  
+  .search-button {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+  }
