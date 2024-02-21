@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App';
+import AppstorePage from './pages/AppstorePage.jsx';
 
 import { 
   Route, 
@@ -14,7 +15,9 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
       <Route index element={<LandingPage/>}/>
+      <Route path="Apps" element={<AppstorePage/>}/>
     </Route>
+
   )
 )
 
