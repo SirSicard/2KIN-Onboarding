@@ -1,0 +1,28 @@
+.hero-title {
+    text-align: center;
+    padding-top: 100px;
+}
+
+.hero-description {
+    width: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 300px;
+}
+
+.hero-buy {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.hero-buy button {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    padding: 12px 40px;
+    border: 0;
+    font-size: 16px;
+}
