@@ -1,0 +1,38 @@
+.hero-title {
+    text-align: center;
+    padding-top: 100px;
+    font-size: 75px;
+    margin-top: 0;
+}
+
+.hero-description {
+    width: 30%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 420px;
+}
+
+.hero-buy {
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.hero-buy button {
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    padding: 12px 40px;
+    border: 0;
+    font-size: 16px;
+}
+
+.hero-image {
+    height: 100vh;
+    background-image: url(../images/hero-stock-placeholder.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

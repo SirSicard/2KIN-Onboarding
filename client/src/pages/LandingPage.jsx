@@ -1,12 +1,12 @@
-import lightmode from "../styles/lightmode.module.css"
+//components
+import HeroSection from "../components/HeroSection";
 
 function LandingPage() {
   return (
-    <div>
-
-    </div>
-
-  )
+    <>
+      <HeroSection />
+    </>
+  );
 }
 
-export default LandingPage
+export default LandingPage;
