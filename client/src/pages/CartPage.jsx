@@ -4,10 +4,11 @@ import "../styles/cart.css"
 export default function CartPage() {
   const mockCart = [
     {
-        id: 1,
-      name: "2KIN product",
-      price: 20,
-      quantity: 3,
+        "id": 1,
+      "name": "2KIN-product",
+      "product-image": "https://via.placeholder.com/600x425",
+      "price": 20,
+      "quantity": 3,
     },
   ];
   const [cart, setCart] = useState(mockCart);
@@ -35,7 +36,7 @@ export default function CartPage() {
       )
       })}
       
-      <h2>Subtotal: {subtotal} $ </h2>
+      <h3>Subtotal: {subtotal} $ </h3>
       <button>check out</button>
     </div>
   );
