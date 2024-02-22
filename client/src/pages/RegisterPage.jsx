@@ -1,137 +1,102 @@
 import { useState } from "react";
 import "../styles/registerPage.css";
+import { Link, useOutletContext } from "react-router-dom";
 
 function RegisterPage() {
-  // State variables for form inputs, errors, agreement, and submission message
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [newsletter, setNewsletter] = useState(false);
-  const [agreed, setAgreed] = useState(false);
+  // State for form data, errors, and submission message
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    newsletter: false,
+    agreed: false,
+  });
   const [errors, setErrors] = useState({});
   const [submissionMessage, setSubmissionMessage] = useState("");
 
-  // Real-time validation for Full Name
-  const handleFullNameChange = (event) => {
-    const value = event.target.value;
-    setFullName(value);
-    if (!value.trim()) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        fullName: "Full Name is required",
-      }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, fullName: "" }));
+  // Function provided by the outlet context to trigger the login popup
+  const toggleLogin = useOutletContext();
+
+  // Handle form input changes
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    const val = type === "checkbox" ? checked : value;
+    setFormData((prevData) => ({ ...prevData, [name]: val }));
+    validateField(name, val);
+    if (name === "confirmPassword" && formData.password !== value) {
+      validateField("confirmPassword", value);
     }
   };
 
-  // Real-time validation for Email
-  const handleEmailChange = (event) => {
-    const value = event.target.value;
-    setEmail(value);
-    if (!value.trim()) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        email: "Email is required",
-      }));
-    } else if (!/\S+@\S+\.\S+/.test(value)) {
-      setErrors((prevErrors) => ({ ...prevErrors, email: "Email is invalid" }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
+  // Validate individual form fields
+  const validateField = (name, value) => {
+    let errorMessage = "";
+    switch (name) {
+      case "fullName":
+        errorMessage = value.trim() ? "" : "Full Name is required";
+        break;
+      case "email":
+        errorMessage = /\S+@\S+\.\S+/.test(value) ? "" : "Email is invalid";
+        break;
+      case "password":
+        errorMessage = validatePassword(value);
+        break;
+      case "confirmPassword":
+        errorMessage =
+          formData.password === value ? "" : "Passwords do not match";
+        break;
+      case "agreed":
+      case "newsletter":
+        errorMessage = value ? "" : `Please agree to the ${name}.`;
+        break;
+      default:
+        errorMessage = "";
     }
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: errorMessage }));
   };
 
-  // Real-time validation for Password
-  const handlePasswordChange = (event) => {
-    const value = event.target.value;
-    setPassword(value);
-
-    // Regular expressions for password validation
+  // Validate password complexity
+  const validatePassword = (value) => {
     const hasNumber = /\d/.test(value);
     const hasCapitalLetter = /[A-Z]/.test(value);
     const hasRequiredLength = value.length >= 8;
-
-    // Generate dynamic error message based on validation criteria
     let errorMessage = "";
-    if (!hasNumber) {
+    if (!hasNumber)
       errorMessage += "Password must contain at least one number. ";
-    }
-    if (!hasCapitalLetter) {
+    if (!hasCapitalLetter)
       errorMessage += "Password must contain at least one capital letter. ";
-    }
-    if (!hasRequiredLength) {
+    if (!hasRequiredLength)
       errorMessage += "Password must be at least 8 characters long. ";
-    }
-
-    // Set the error message
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      password: errorMessage.trim(),
-    }));
-  };
-
-  // Real-time validation for Confirm Password
-  const handleConfirmPasswordChange = (event) => {
-    const value = event.target.value;
-    setConfirmPassword(value);
-    if (value !== password) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        confirmPassword: "Passwords do not match",
-      }));
-    } else {
-      setErrors((prevErrors) => ({ ...prevErrors, confirmPassword: "" }));
-    }
-  };
-
-  // Checkbox change handler for newsletter subscription
-  const handleNewsletterChange = () => {
-    setNewsletter((prevNewsletter) => !prevNewsletter);
-  };
-
-  // Checkbox change handler for agreement
-  const handleAgreementChange = () => {
-    setAgreed((prevAgreed) => !prevAgreed);
+    return errorMessage.trim();
   };
 
   // Placeholder for submission handler
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
 
-    // Check if all required fields are filled
-    if (!fullName.trim() || !email.trim() || !password.trim()) {
-      alert("Please fill in all required fields.");
-      return;
+    const formValid = Object.values(errors).every((error) => error === "");
+    if (formValid) {
+      console.log("Form submitted:", formData);
+      setFormData({
+        fullName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        newsletter: false,
+        agreed: false,
+      });
+      setSubmissionMessage("Form submitted successfully!");
+    } else {
+      setSubmissionMessage("");
     }
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    }
-
-    if (!agreed) {
-      alert("Please agree to the terms before submitting.");
-      return;
-    }
-
-    console.log("Form submitted:", { fullName, email, password });
-
-    // Clear form fields
-    setFullName("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-
-    // Display success message
-    setSubmissionMessage("Form submitted successfully!");
   };
 
   return (
     <section className="register-page">
       <h1>Create your account</h1>
       <p>
-        Already have an account? <a>Login</a>
+        Already have an account? <Link onClick={toggleLogin}>Login</Link>
       </p>
       {submissionMessage && (
         <p style={{ color: "#00897B" }}>{submissionMessage}</p>
@@ -143,9 +108,11 @@ function RegisterPage() {
             className={errors.fullName ? "error" : ""}
             type="text"
             id="full-name"
+            name="fullName"
             placeholder="Enter your full name"
-            value={fullName}
-            onChange={handleFullNameChange}
+            value={formData.fullName}
+            onChange={handleChange}
+            required
           />
           {errors.fullName && <p className="error">{errors.fullName}</p>}
         </div>
@@ -155,9 +122,11 @@ function RegisterPage() {
             className={errors.email ? "error" : ""}
             type="email"
             id="email"
+            name="email"
             placeholder="Enter your email address"
-            value={email}
-            onChange={handleEmailChange}
+            value={formData.email}
+            onChange={handleChange}
+            required
           />
           {errors.email && <p className="error">{errors.email}</p>}
         </div>
@@ -167,9 +136,11 @@ function RegisterPage() {
             className={errors.password ? "error" : ""}
             type="password"
             id="password"
+            name="password"
             placeholder="Enter your password"
-            value={password}
-            onChange={handlePasswordChange}
+            value={formData.password}
+            onChange={handleChange}
+            required
           />
           {errors.password && <p className="error">{errors.password}</p>}
         </div>
@@ -179,9 +150,11 @@ function RegisterPage() {
             className={errors.confirmPassword ? "error" : ""}
             type="password"
             id="confirm-password"
+            name="confirmPassword"
             placeholder="Confirm your password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            required
           />
           {errors.confirmPassword && (
             <p className="error">{errors.confirmPassword}</p>
@@ -191,8 +164,9 @@ function RegisterPage() {
           <label>
             <input
               type="checkbox"
-              checked={newsletter}
-              onChange={handleNewsletterChange}
+              name="newsletter"
+              checked={formData.newsletter}
+              onChange={handleChange}
             />
             I want to receive the newsletter.
           </label>
@@ -201,8 +175,10 @@ function RegisterPage() {
           <label>
             <input
               type="checkbox"
-              checked={agreed}
-              onChange={handleAgreementChange}
+              name="agreed"
+              checked={formData.agreed}
+              onChange={handleChange}
+              required
             />
             I agree to the terms and conditions.
           </label>
