@@ -1,0 +1,40 @@
+.tech-section {
+    margin: 20px 10%;
+    padding: 20px 0;
+    border-top: 1px solid #E0E0E0;
+}
+
+.tech-section h2 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.tech-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.text-left,
+.text-right,
+.img-left,
+.img-right {
+    flex: 0 0 40%;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: left;
+}
+
+.img-left {
+    order: -1;
+}
+
+.img-right {
+    order: 1;
+}
