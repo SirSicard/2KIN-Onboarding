@@ -1,0 +1,106 @@
+.shop-content {
+  width: 100%;
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+/*image styling*/
+.image-content {
+  padding-top: 40px;
+  max-width: 49%;
+  display: flex;
+
+  flex: 0 1 50%;
+  justify-content: center;
+  align-content: center;
+  flex-flow: row wrap;
+  max-height: 400px;
+}
+
+.image-content img {
+  max-width: 50px;
+  max-height: 36px;
+}
+.img-view {
+  max-width: 200px;
+  min-width: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  max-width: fit-content;
+  max-height: 50px;
+  pointer-events: stroke;
+  cursor: pointer;
+}
+.selectedImage img {
+  max-height: 300px;
+  max-width: 300px;
+}
+.image-content > div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.image-view-content {
+  margin-top: 20px;
+  max-height: 50px;
+}
+/*product styling*/
+.product-content {
+  max-height: 400px;
+  max-width: 49%;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-flow: column wrap;
+  flex: 0 1 50%;
+}
+.product-content input {
+  max-width: 50px;
+  max-height: 30px;
+}
+.product-content h3 {
+  text-align: start;
+  font-size: x-large;
+}
+.product-content > div {
+  display: flex;
+  justify-self: center;
+  max-width: 200px;
+  max-height: 20px;
+  margin-bottom: 50px;
+}
+.product-item {
+  align-self: center;
+  margin-left: auto;
+}
+
+/*product info and button to add to cart */
+.product-info {
+  padding-top: 30px;
+  justify-self: center;
+  max-width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  flex: 0 1 100%;
+}
+
+.product-info h4,
+h3 {
+  font-size: x-large;
+}
+.shop-content button {
+  justify-self: center;
+  border-radius: 4;
+  text-size-adjust: 18;
+  min-height: 30px;
+  min-width: 100px;
+  text-align: center;
+}
+.shop-content p {
+  max-width: 80%;
+}
