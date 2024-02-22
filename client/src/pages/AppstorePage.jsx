@@ -1,4 +1,5 @@
 import "../styles/appstorepage.css";
+import { useState } from "react";
 function AppstorePage() {
   const mockApps = [
     {
@@ -74,39 +75,31 @@ function AppstorePage() {
       isFeatured: false,
     },
   ];
-
-  const featuredApps = mockApps
-    .filter((app) => app.isFeatured)
-    .map((app) => (
-      <div key={`featured-app-${app.id}`} className="featured-apps-card">
-        <img src={app.imageUrl} alt={`App ${app.id}`} />
-      </div>
-    ));
-
-    const browseApps = mockApps.map((app, index) => (
-      <div key={`browse-app-${app.id}`} className="browse-apps-card">
-        <img src={app.imageUrl} alt={`App ${app.id}`} />
-      </div>
-    ));
-
   return (
     <>
-    <div id="appstore-container">
-      <h1 className="appstore-titles">App store</h1>
-      <div className="search-container">
-        <input
-          type="search"
-          id="search"
-          placeholder="Enter your search query"
-          className="search-input"
-        />
-        <input type="submit" value="Search" className="search-button" />
+      <div id="appstore-container">
+        <h1 className="appstore-titles">Featured Apps</h1>
+        <div id="featured-apps-container">
+          {mockApps
+            .filter((app) => app.isFeatured)
+            .map((app) => (
+              <div key={`featured-app-${app.id}`} className="featured-apps-card">
+                <img src={app.imageUrl} alt={`App ${app.id}`} />
+                <button className="download-button">Download</button>
+              </div>
+            ))}
+        </div>
+
+        <h1 className="appstore-titles">Browse apps</h1>
+        <div id="browse-apps-container">
+          {mockApps.map((app) => (
+            <div key={`browse-app-${app.id}`} className="browse-apps-card">
+              <img src={app.imageUrl} alt={`App ${app.id}`} />
+              <button className="download-button">Download</button>
+            </div>
+          ))}
+        </div>
       </div>
-      <h1 className="appstore-titles">Featured Apps</h1>
-      <div id="featured-apps-container">{featuredApps}</div>
-      <h1 className="appstore-titles">Browse apps</h1>
-      <div id="browse-apps-container">{browseApps}</div>
-    </div>
     </>
   );
 }
