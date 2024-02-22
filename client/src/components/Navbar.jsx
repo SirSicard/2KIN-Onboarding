@@ -8,7 +8,7 @@ function Navbar() {
         <h1 className="Logo">2kin</h1>
       </NavLink>
       <div className="nav-right">
-      <NavLink>SHOP</NavLink>
+      <NavLink to={"/shop"}>SHOP</NavLink>
       <NavLink>DOCS</NavLink>
       <NavLink>APPSTORE</NavLink>
       </div>

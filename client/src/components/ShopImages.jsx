@@ -10,7 +10,7 @@ export default function ShopImages() {
         alt="selectImage"
       />
     </div>
-    <div>
+    <div className="img-view-content">
     <div className="img-view">
       <img
         src="https://www.shutterstock.com/image-photo/closeup-silicon-die-being-extracted-600nw-2262331365.jpg"
