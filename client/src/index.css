@@ -1,10 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /*light mode*/
 :root {
-    --main-bg-color: #FAF9F6; 
+    --main-bg-color: #FAF9F6;
     --main-primary-text-color: #333333;
-    --button-bg-color: #2196F3; 
-    --button-text-color: #FFFFFF; 
+    --button-bg-color: #2196F3;
+    --button-text-color: #FFFFFF;
     --button-hover-color: #1976D2;
+    --light-gray: #CCC;
+    --vermilion: #FF3333
 }
 body{
     margin: 0;
