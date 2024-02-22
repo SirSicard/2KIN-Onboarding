@@ -15,7 +15,7 @@ function HeroSection() {
         molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
         officia aut!
         </p>
-        <Link to="/" className="hero-buy"><button>BUY NOW</button></Link>
+        <Link to="/shop" className="hero-buy"><button>BUY NOW</button></Link>
     </div>
   );
 }
