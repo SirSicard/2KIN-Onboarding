@@ -1,0 +1,27 @@
+.cart-content {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    flex-flow: column wrap;
+}
+
+
+.cart-context {
+    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 1px solid;
+}
+.remove-button  > p{
+    align-self: flex-start;
+}    
+.cart-products {
+    width: 500px;
+    height: 50px;
+    display: flex;
+    padding-right: 30px;
+    border-bottom: 1px solid;
+    justify-content: space-evenly;
+}
