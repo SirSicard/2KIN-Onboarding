@@ -10,12 +10,14 @@ import {
 
 import LandingPage from './pages/LandingPage.jsx'
 import ShopPage from './pages/ShopPage.jsx';
+import DocumentationPage from './pages/DocumentationPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
       <Route index element={<LandingPage/>}/>
       <Route path="shop" element={<ShopPage/>}/>
+      <Route path="docs" element={<DocumentationPage />} />
     </Route>
   )
 )
