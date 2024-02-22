@@ -6,15 +6,18 @@
 
 /*light mode*/
 :root {
-    --main-bg-color: #FAF9F6;
-    --main-primary-text-color: #333333;
-    --button-bg-color: #2196F3;
-    --button-text-color: #FFFFFF;
-    --button-hover-color: #1976D2;
-    --light-gray: #CCC;
-    --vermilion: #FF3333
+  --main-bg-color: #faf9f6;
+  --main-primary-text-color: #333333;
+  --button-bg-color: #2196f3;
+  --button-text-color: #ffffff;
+  --button-hover-color: #1976d2;
+  --light-gray: #ccc;
+  --vermilion: #ff3333;
+  --medium-green: #4caf50;
+  --dark-green: #388e3c;
 }
-body{
-    margin: 0;
-    padding: 0;
+
+body {
+  margin: 0;
+  padding: 0;
 }
