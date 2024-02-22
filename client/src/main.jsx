@@ -9,11 +9,13 @@ import {
   createRoutesFromElements } from 'react-router-dom';
 
 import LandingPage from './pages/LandingPage.jsx'
+import DocumentationPage from './pages/DocumentationPage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App/>}>
       <Route index element={<LandingPage/>}/>
+      <Route path="docs" element={<DocumentationPage />} />
     </Route>
   )
 )
