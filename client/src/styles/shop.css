@@ -30,6 +30,8 @@
   margin-right: 20px;
   max-width: fit-content;
   max-height: 50px;
+  pointer-events: stroke;
+  cursor: pointer;
 }
 .selectedImage img {
   max-height: 300px;
