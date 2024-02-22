@@ -37,7 +37,7 @@ function AboutSection() {
           officia aut!
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
         </p>
-        <Link to="/" className="read-more">Read More</Link>
+        <Link to="/docs" className="read-more">Read More</Link>
       </div>
       <img src="https://via.placeholder.com/600x425" alt="placeholder" />
     </div>
