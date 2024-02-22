@@ -89,7 +89,8 @@
   flex: 0 1 100%;
 }
 
-.product-info h4, h3 {
+.product-info h4,
+h3 {
   font-size: x-large;
 }
 .shop-content button {

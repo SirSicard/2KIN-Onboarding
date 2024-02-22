@@ -1,16 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ShopImages() {
   const [views, setViews] = useState("view 1");
-  const ref = useRef();
-
+ const [primarySrc, setPrimarySrc] = useState("");
   useEffect(() => {
-    handleSelectedImage()
-  }, [views])
+    handleSelectedImage();
+  }, [views]);
 
-  const [primarySrc, setPrimarySrc] = useState(
-    ""
-  );
+ 
   function handleSelectedImage() {
     switch (views) {
       case "view 1":
@@ -31,13 +28,13 @@ export default function ShopImages() {
         );
     }
   }
-  
+
   return (
     <div className={"image-content"}>
       <div className="selectedImage">
         <img src={primarySrc} alt="selected Image" />
       </div>
-      <div ref={ref} className="img-view-content">
+      <div className="img-view-content">
         <div className="img-view">
           <img
             onClick={() => {
@@ -51,7 +48,6 @@ export default function ShopImages() {
           <img
             onClick={() => {
               setViews("view 2");
-              
             }}
             src="https://www.shutterstock.com/shutterstock/photos/2284126663/display_1500/stock-photo-data-science-and-big-data-technology-scientist-computing-analysing-and-visualizing-complex-data-2284126663.jpg"
             alt="view 2"
