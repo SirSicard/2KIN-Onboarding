@@ -11,7 +11,7 @@ function Navbar({ onLoginClick }) {
       <div className="nav-right">
         <NavLink to={"/shop"}>SHOP</NavLink>
         <NavLink to="/docs">DOCS</NavLink>
-        <NavLink>APPSTORE</NavLink>
+        <NavLink to={"/apps"}>APPSTORE</NavLink>
         <Link href="#" onClick={onLoginClick}>
           <span className="nav-login-btn">Login</span>
         </Link>
