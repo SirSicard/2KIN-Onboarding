@@ -12,15 +12,11 @@ export default function CartItem({ cart, cartItem, setCart }) {
     console.log("deleted");
   }
 
-  
-
-
   useEffect(() => {
-    console.log(inputs)
+    console.log(inputs);
     if (cartItem.quantity <= 0) {
-      
       const findIndex = cart.findIndex((item) => item.id == cartItem.id);
-      const arr = [...cart]; 
+      const arr = [...cart];
       setCart([...arr.slice(0, findIndex), ...arr.slice(findIndex + 1)]);
     }
   }, [cartItem]);
@@ -28,6 +24,7 @@ export default function CartItem({ cart, cartItem, setCart }) {
   /*Code greatly inspired from comment of this post
     https://stackoverflow.com/questions/71333439/setting-the-values-of-an-object-in-an-array-in-react
   */
+  //This function increases the quantity of item by 1.
   function incrementQuantity(event) {
     const { value } = event.target;
     const arr = [...cart];
@@ -37,15 +34,16 @@ export default function CartItem({ cart, cartItem, setCart }) {
     setCart(arr);
   }
 
+  //This function decreases the quantity of item by 1.
   function decrementQuantity(event) {
     const { value } = event.target;
     const arr = [...cart];
     const findIndex = cart.findIndex((item) => item.id == value);
     arr[findIndex] = { ...arr[findIndex], ["quantity"]: inputs.quantity - 1 };
     setInputs((values) => ({ ...values, ["quantity"]: inputs.quantity - 1 }));
-      setCart(arr);
- 
+    setCart(arr);
   }
+  //This function submits the changes of input when submitting
   function handleSubmit(event) {
     event.preventDefault();
     const arr = [...cart];
@@ -53,12 +51,12 @@ export default function CartItem({ cart, cartItem, setCart }) {
     arr[findIndex] = { ...arr[findIndex], ["quantity"]: inputs.quantity };
     setCart(arr);
   }
-
+  //This function changes the quantity of items depending on selected input
   function handleQuantityInput(event) {
     const { value, name } = event.target;
     setInputs((values) => ({ ...values, [name]: parseInt(value) }));
   }
-  console.log(cartItem.quantity)
+  console.log(cartItem.quantity);
   const total = cartItem.price * cartItem.quantity;
   return (
     <div className="cart-products">
