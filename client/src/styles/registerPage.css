@@ -1,0 +1,94 @@
+.register-page {
+  max-width: 500px;
+  margin: 16px;
+  padding: 16px;
+  background-color: var(--main-bg-color);
+  box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.2);
+}
+
+.register-page h1 {
+  font-size: 24px;
+  text-align: center;
+  margin: 0px 0 30px;
+}
+
+.register-page a {
+  color: var(--button-bg-color);
+  font-weight: 600;
+}
+
+.register-page .form-group {
+  margin-bottom: 16px;
+}
+
+.register-page .form-group label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.register-page .form-group input {
+  height: 40px;
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  background: var(--button-text-color);
+  border-radius: 3px;
+  border: 1px solid var(--light-gray);
+}
+
+.register-page  .form-group input:focus {
+  border-color: var(--main-primary-text-color);
+}
+
+.register-page  .form-group input[type="checkbox"] {
+  width: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.register-page .checkbox label {
+  margin-bottom: -16px;
+}
+
+.register-page .form-group .error {
+  border-color: var(--vermilion);
+  color: var(--vermilion);
+}
+
+.register-page .submit-btn {
+  margin-top: 32px;
+  text-align: center;
+}
+.register-page .submit-btn input {
+  color: var(--button-text-color);
+  border: none;
+  height: auto;
+  font-size: 16px;
+  padding: 12px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  background: var(--button-bg-color);
+  transition: 0.2s ease;
+}
+.register-page  .submit-btn input:hover {
+  background: var(--button-hover-color);
+}
+
+@media screen and (min-width: 530px) {
+  .register-page {
+    margin: 32px auto;
+    padding: 32px;
+  }
+
+  .register-page h1 {
+    font-size: 32px;
+  }
+
+  .register-page .form-group input {
+    height: 48px;
+  }
+}

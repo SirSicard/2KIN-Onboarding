@@ -1,0 +1,141 @@
+.login-popup {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.2);
+  z-index: 9999999;
+}
+
+.login-popup .overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.login-popup .popup {
+  position: relative;
+  background-color: var(--main-bg-color);
+  max-width: 500px;
+  margin: 16px;
+  padding: 16px;
+  z-index: 1000;
+}
+
+.login-popup .close {
+  width: 32px;
+  position: absolute;
+  height: 32px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.login-popup .close:after {
+  content: "";
+  height: 32px;
+  border-left: 2px solid var(--main-primary-text-color);
+  position: absolute;
+  transform: rotate(45deg);
+  left: 16px;
+}
+
+.login-popup .close:before {
+  content: "";
+  height: 32px;
+  border-left: 2px solid var(--main-primary-text-color);
+  position: absolute;
+  transform: rotate(-45deg);
+  left: 16px;
+}
+
+.login-popup .popup img {
+  display: block;
+  margin: 32px auto;
+}
+
+.login-popup .form-group {
+  margin-bottom: 16px;
+}
+
+.login-popup .form-group label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.login-popup .form-group input {
+  height: 40px;
+  padding: 8px;
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  background: var(--button-text-color);
+  border-radius: 3px;
+  border: 1px solid var(--light-gray);
+}
+
+.login-popup .form-group input:focus {
+  border-color: var(--main-primary-text-color);
+}
+
+.login-popup a {
+  color: var(--button-bg-color);
+  font-weight: 500;
+}
+
+.login-popup .form-group.submit-btn,
+.login-popup .form-group.register-btn {
+  text-align: center;
+}
+
+.login-popup .submit-btn input,
+.login-popup .register-btn a {
+  width: 180px;
+  color: var(--button-text-color);
+  border: none;
+  height: auto;
+  font-size: 16px;
+  margin-bottom: 32px;
+  padding: 12px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  background: var(--button-bg-color);
+  transition: 0.2s ease;
+}
+.login-popup .submit-btn input:hover {
+  background: var(--button-hover-color);
+}
+
+.login-popup .register-btn {
+  padding-top: 48px;
+  border-top: 1px solid var(--main-primary-text-color);
+}
+
+.login-popup .register-btn a {
+  display: block;
+  margin: 0 auto;
+  background-color: var(--medium-green);
+}
+
+.login-popup .register-btn a:hover {
+  background-color: var(--dark-green);
+}
+
+@media screen and (min-width: 530px) {
+  .login-popup .popup {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 32px;
+  }
+
+  .login-popup .form-group input {
+    height: 48px;
+  }
+}

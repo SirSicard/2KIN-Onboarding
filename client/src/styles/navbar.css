@@ -1,12 +1,24 @@
-nav{
-    height: 60px;
-    padding: 0 10px 0 10px;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
+nav {
+  height: 60px;
+  padding: 0 10px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
 }
-.nav-right a{
-    padding: 20px;
-    display: inline-block;
+.nav-right a {
+  padding: 20px;
+  display: inline-block;
+}
+
+nav .nav-login-btn {
+  padding: 4px 8px;
+  border: 2px solid var(--button-bg-color);
+  border-radius: 4px;
+  color: var(--button-bg-color);
+}
+
+nav .nav-login-btn:hover {
+  border-color: var(--button-hover-color);
+  color: var(--button-hover-color);
 }
