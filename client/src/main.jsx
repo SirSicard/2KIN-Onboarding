@@ -13,9 +13,6 @@ import LandingPage from './pages/LandingPage.jsx'
 import ShopPage from './pages/ShopPage.jsx';
 import DocumentationPage from './pages/DocumentationPage.jsx';
 import DocsCategoryPage from './pages/DocsCategoryPage.jsx';
-import LandingPage from "./pages/LandingPage.jsx";
-import ShopPage from "./pages/ShopPage.jsx";
-import DocumentationPage from "./pages/DocumentationPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import AppstorePage from './pages/AppstorePage.jsx';
 
