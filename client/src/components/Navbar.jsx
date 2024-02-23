@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "../styles/navbar.css";
+import PropTypes from "prop-types";
 
 function Navbar({ onLoginClick }) {
   return (
@@ -18,4 +19,9 @@ function Navbar({ onLoginClick }) {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  onLoginClick: PropTypes.func.isRequired,
+};
+
 export default Navbar;

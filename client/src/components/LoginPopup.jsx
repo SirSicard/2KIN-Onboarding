@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/loginPopup.css";
+import PropTypes from "prop-types";
 
 function LoginPopup({ isOpen, onClose }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -64,5 +65,10 @@ function LoginPopup({ isOpen, onClose }) {
     </section>
   );
 }
+
+LoginPopup.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 export default LoginPopup;
