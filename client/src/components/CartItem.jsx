@@ -1,11 +1,28 @@
 import PropTypes from "prop-types";
-export default function CartItem({ props }) {
+export default function CartItem({ cartItem, setCart }) {
+
 
 
   function onDelete() {
     console.log("deleted")
   }
+
+  function incrementQuantity() {
+    setCart()
+  }
+
+  function decrementQuantity(){
+
+  }
+
+  function handleQuantityInput() {
+
+  }
+
   const total = props.price * props.quantity;
+
+
+
   console.log(total)
   return (
     <div className="cart-products">
@@ -30,11 +47,12 @@ export default function CartItem({ props }) {
 }
 
 CartItem.propTypes = {
-  props: {
+  cartItem: PropTypes.shape( {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,
     "product-image": PropTypes.string.isRequired
-  }
+  }).isRequired,
+  setCart: PropTypes.func.isRequired
  
 };

@@ -26,7 +26,7 @@ export default function CartPage() {
     return sum + item.price * item.quantity;
   }, 0);
 
-  
+
 
   console.log(subtotal);
   return (
@@ -42,7 +42,7 @@ export default function CartPage() {
       </div>
       {cart.map((item) => {
         return (
-        <CartItem key={item.id} props={item} />
+        <CartItem setCart={setCart} key={item.id} cartItem={item} />
       )
       })}
       
