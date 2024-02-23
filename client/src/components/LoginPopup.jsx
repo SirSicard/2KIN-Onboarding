@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/loginPopup.css";
+import PropTypes from "prop-types";
 
-function LoginPopup({ isOpen, onClose }) {
+function LoginPopup({ onClose }) {
   const [formData, setFormData] = useState({ username: "", password: "" });
 
   const handleChange = (event) => {
@@ -20,7 +21,7 @@ function LoginPopup({ isOpen, onClose }) {
   };
 
   return (
-    <section className={`login-popup ${isOpen ? "open" : ""}`}>
+    <section className="login-popup">
       <div className="overlay" onClick={onClose}></div>
       <div className="popup">
         <div className="close" onClick={onClose}></div>
@@ -64,5 +65,9 @@ function LoginPopup({ isOpen, onClose }) {
     </section>
   );
 }
+
+LoginPopup.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
 
 export default LoginPopup;
