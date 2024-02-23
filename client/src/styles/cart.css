@@ -4,16 +4,17 @@
     align-content: center;
     width: 100%;
     flex-flow: column wrap;
-    height: 800px
+    min-height: 800px
 }
 
 
 .cart-context {
-    width: 1000px;
+    width: 700px;
     display: flex;
     justify-content: space-around;
     height: 80px;
     border-bottom: 1px solid;
+    margin-left: 30px;
 }
 .remove-button  > p{
     align-self: center;
@@ -22,7 +23,7 @@
     font-size: large;
 }    
 .cart-items { 
-    width: 1000px;
+    width: 700px;
     height: 50px;
     display: flex;
     border-bottom: 1px solid;
@@ -36,6 +37,7 @@
     flex-flow:column wrap;
     align-items: flex-start;
     padding-bottom: 30px;
+    margin-right: 10px;
 }
 .cart-items > div {
     flex: 0 1 30%;
@@ -50,12 +52,23 @@
 .cart-content h3 {
     text-align: center;
 }
-.cart-content button {
+.cart-content > button {
     width: 200px;
     font-size: x-large;
     align-self: center;
-    border-radius: 0.5em;
 }
 .cart-items > p {
     flex: 0 1 10%;
+}
+.quantity-content button {
+    width: 30px;
+}
+.quantity-content {
+    flex: 0 1 10%;
+    max-width: 100px;
+    max-height: 20px;
+}
+.cart-items input {
+    max-width: 20px;
+    text-decoration: none;
 }

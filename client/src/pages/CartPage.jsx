@@ -32,7 +32,7 @@ export default function CartPage() {
       </div>
       {cart.map((item) => {
         return (
-        <CartItem key={item.id} details={item} />
+        <CartItem key={item.id} props={item} />
       )
       })}
       

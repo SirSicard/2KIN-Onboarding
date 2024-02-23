@@ -1,10 +1,11 @@
-export default function CartItem({ details }) {
+import PropTypes from "prop-types";
+export default function CartItem({ props }) {
 
 
   function onDelete() {
     console.log("deleted")
   }
-  const total = details.price * details.quantity;
+  const total = props.price * props.quantity;
   console.log(total)
   return (
     <div className="cart-products">
@@ -13,13 +14,27 @@ export default function CartItem({ details }) {
       </div>
       <div className="cart-items">
         <div>
-          <img src={details["product-image"]}></img>
-          <p>{details.name}</p>
+          <img src={props["product-image"]}></img>
+          <p>{props.name}</p>
         </div>
-        <p>{details.price}</p>
-        <p>{details.quantity}</p>
+        <p>{props.price}</p>
+        <div className="quantity-content">
+        <button>-</button>
+        <input type="number" defaultValue={props.quantity} />
+        <button>+</button>
+        </div>
         <p>{total}</p>
       </div>
     </div>
   );
 }
+
+CartItem.propTypes = {
+  props: {
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    quantity: PropTypes.number.isRequired,
+    "product-image": PropTypes.string.isRequired
+  }
+ 
+};
