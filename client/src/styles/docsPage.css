@@ -6,7 +6,7 @@ h1 {
     width: 80%;
     padding: 10px;
     box-sizing: border-box;
-    margin: 40px auto 100px auto; /* Centrerad med auto-marginaler */
+    margin: 40px auto 100px auto; 
     display: block;
     background-color: #FAF9F6;
   }
@@ -14,24 +14,25 @@ h1 {
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: left;
+    gap: 100px;
     margin-top: 20px; 
     margin-left: 5vw; 
     margin-right: 5vw;
   }
   
   .card {
-    height: 18vh;
-    width: 18vw; 
+    height: 175px;
+    width: 350px; 
     background-color: #E0E0E0;
     border: 1px solid #dddddd;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 20px; 
+    /*margin-bottom: 20px; */
   }
-  .card:nth-child(-n+4) {
-    margin-bottom: 100px; /* Större mellanrum för de fyra första korten */
-  }
+  /*.card:nth-child(-n+4) {
+    margin-bottom: 100px; 
+  }*/
   
   .card:hover {
     transform: translateY(-5px); 
