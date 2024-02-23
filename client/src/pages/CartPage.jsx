@@ -13,16 +13,22 @@ export default function CartPage() {
       "price": 20,
       "quantity": 3,
     },
+    {
+      "id": 2,
+      "name": "Extra 1",
+      "product-image": "https://via.placeholder.com/600x425",
+      "price": 10,
+      "quantity": 2,
+    }
   ];
 
   const [cart, setCart] = useState(mockCart);
   
   const navigate = useNavigate();
-  console.log(cart.map((item) => item.price * item.quantity));
+
 
   // code tip from last comment of https://stackoverflow.com/questions/50729169/reduce-in-function-to-calculate-total-of-products
-
-  const subtotal = cart.reduce((sum, item) => {
+  const subtotal = cart?.reduce((sum, item) => {
     return sum + item.price * item.quantity;
   }, 0);
 
@@ -40,9 +46,9 @@ export default function CartPage() {
         <p>quantiy</p>
         <p>total</p>
       </div>
-      {cart.map((item) => {
+      {cart?.map((item) => {
         return (
-        <CartItem setCart={setCart} key={item.id} cartItem={item} />
+        <CartItem cart={cart} setCart={setCart} key={item.id} cartItem={item} />
       )
       })}
       
