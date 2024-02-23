@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Importera Link från react-router-dom
+import { Link } from 'react-router-dom'; 
 import "../styles/docsPage.css";
 
 export const mockData = [
@@ -8,6 +8,7 @@ export const mockData = [
   { id: 3, title: "Kategori 3", content: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
   { id: 4, title: "Kategori 4", content: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
   { id: 5, title: "Kategori 5", content: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
+  { id: 6, title: "Kategori 6", content: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
 ];
 
 function DocumentationPage() {
