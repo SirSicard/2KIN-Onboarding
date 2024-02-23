@@ -1,74 +1,93 @@
 .cart-content {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    width: 100%;
-    flex-flow: column wrap;
-    min-height: 800px
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  flex-flow: column wrap;
+  min-height: 800px;
 }
 
-
-.cart-context {
-    width: 700px;
-    display: flex;
-    justify-content: space-around;
-    height: 80px;
-    border-bottom: 1px solid;
-    margin-left: 30px;
-}
-.remove-button  > p{
-    align-self: center;
-    cursor: pointer;
-    color: #2196F3 ;
-    font-size: large;
-}    
-.cart-items { 
-    width: 700px;
-    height: 50px;
-    display: flex;
-    border-bottom: 1px solid;
-    margin: 0 auto;
-    justify-content: space-between;
-    word-spacing: 50px;
-    flex-grow: 1;
-}
-.cart-products {
-    display: flex;
-    flex-flow:column wrap;
-    align-items: flex-start;
-    padding-bottom: 30px;
-    margin-right: 10px;
-}
-.cart-items > div {
-    flex: 0 1 30%;
-    display: flex;
-    flex-flow: wrap;
-    gap: 5px;
-}
-.cart-items img {
-    max-width: 63px;
-    max-height: 50px
-}
 .cart-content h3 {
     text-align: center;
-}
-.cart-content > button {
+  }
+  .cart-content > button {
     width: 200px;
     font-size: x-large;
     align-self: center;
+  }
+  
+/* Cart context */
+.cart-context {
+  width: 700px;
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  border-bottom: 1px solid;
+  margin-left: 30px;
 }
-.cart-items > p {
-    flex: 0 1 10%;
+/* Cart products */
+.remove-button > p {
+  align-self: center;
+  cursor: pointer;
+  color: #2196f3;
+  font-size: large;
 }
+
+.cart-products {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  padding-bottom: 30px;
+  margin-right: 10px;
+}
+
+
+/*quantity content */
 .quantity-content button {
-    width: 30px;
+  width: 30px;
+  font-size: larger;
 }
 .quantity-content {
-    flex: 0 1 10%;
-    max-width: 100px;
-    max-height: 20px;
+  flex: 0 1 10%;
+  max-width: 100px;
+  max-height: 20px;
+   align-self: center;
+}
+/* cart items */
+.cart-items {
+  width: 700px;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid;
+  margin: 0 auto;
+  justify-content: space-between;
+  word-spacing: 50px;
+  flex-grow: 1;
+}
+/* remove arrow from inputs of type number: link :
+ https://stackoverflow.com/questions/13107118/how-to-remove-the-arrows-from-inputtype-number-in-opera  
+ */
+.cart-items input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-decoration: none;
 }
 .cart-items input {
-    max-width: 20px;
-    text-decoration: none;
+  max-width: 30px;
+  text-align: center;
+}
+.cart-items > p {
+  flex: 0 1 10%;
+}
+.cart-items > div {
+  flex: 0 1 30%;
+  display: flex;
+  flex-flow: wrap;
+  gap: 5px;
+}
+.cart-items img {
+  max-width: 63px;
+  max-height: 50px;
 }
