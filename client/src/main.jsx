@@ -13,6 +13,7 @@ import LandingPage from "./pages/LandingPage.jsx";
 import ShopPage from "./pages/ShopPage.jsx";
 import DocumentationPage from "./pages/DocumentationPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
+import AppstorePage from './pages/AppstorePage.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,8 +21,10 @@ const router = createBrowserRouter(
       <Route index element={<LandingPage />} />
       <Route path="shop" element={<ShopPage />} />
       <Route path="docs" element={<DocumentationPage />} />
+      <Route path="Apps" element={<AppstorePage/>}/>
       <Route path="register" element={<RegisterPage />} />
     </Route>
+
   )
 );
 
