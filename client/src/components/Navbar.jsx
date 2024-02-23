@@ -10,7 +10,7 @@ function Navbar() {
       <div className="nav-right">
       <NavLink>SHOP</NavLink>
       <NavLink>DOCS</NavLink>
-      <NavLink>APPSTORE</NavLink>
+      <NavLink to={"/apps"}>APPSTORE</NavLink>
       </div>
       
     </nav>
