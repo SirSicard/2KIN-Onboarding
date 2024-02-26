@@ -108,7 +108,7 @@ h3 {
   max-width: 80%;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 650px) {
     .image-content {
       flex: 0 1 100%;
       align-self: center;
@@ -122,6 +122,11 @@ h3 {
       flex: 0 1 100%;
       flex-flow: column wrap;
       align-items: center;
+    }
+    .product-item {
+      margin-left: auto;
+      margin-right: auto;
+      align-self: center;
     }
     .product-content {
       align-self: center;
