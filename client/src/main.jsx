@@ -12,6 +12,7 @@ import {
 import LandingPage from './pages/LandingPage.jsx'
 import ShopPage from './pages/ShopPage.jsx';
 import DocumentationPage from './pages/DocumentationPage.jsx';
+import CartPage from './pages/CartPage.jsx';
 import DocsCategoryPage from './pages/DocsCategoryPage.jsx';
 import RegisterPage from "./pages/RegisterPage.jsx";
 import AppstorePage from './pages/AppstorePage.jsx';
@@ -23,6 +24,7 @@ const router = createBrowserRouter(
       <Route index element={<LandingPage />} />
       <Route path="shop" element={<ShopPage />} />
       <Route path="docs" element={<DocumentationPage />} />
+      <Route path='cart' element={<CartPage/> }/>
       <Route path="docs/:id" element={<DocsCategoryPage />} />
       <Route path="apps" element={<AppstorePage/>}/>
       <Route path="apps/:id" element={<AppDetailsPage/>}/>
