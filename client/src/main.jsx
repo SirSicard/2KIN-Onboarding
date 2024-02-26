@@ -16,6 +16,7 @@ import CartPage from './pages/CartPage.jsx';
 import DocsCategoryPage from './pages/DocsCategoryPage.jsx';
 import RegisterPage from "./pages/RegisterPage.jsx";
 import AppstorePage from './pages/AppstorePage.jsx';
+import AppDetailsPage from "./pages/AppDetailsPage.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,7 +26,8 @@ const router = createBrowserRouter(
       <Route path="docs" element={<DocumentationPage />} />
       <Route path='cart' element={<CartPage/> }/>
       <Route path="docs/:id" element={<DocsCategoryPage />} />
-      <Route path="Apps" element={<AppstorePage/>}/>
+      <Route path="apps" element={<AppstorePage/>}/>
+      <Route path="apps/:id" element={<AppDetailsPage/>}/>
       <Route path="register" element={<RegisterPage />} />
     </Route>
 
