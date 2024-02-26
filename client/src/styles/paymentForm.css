@@ -1,0 +1,79 @@
+.payment-details {
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.payment-details h2 {
+  margin: 0;
+}
+
+.payment-method {
+  display: flex;
+  height: 48px;
+  margin: 16px auto;
+  padding: 4px;
+  background-color: #e0e0e0;
+  gap: 8px;
+}
+
+.payment-method button {
+  width: 100%;
+  background-color: #e0e0e0;
+  color: var(--main-primary-text-color);
+  font-weight: 600;
+}
+
+.payment-method button.active {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+}
+
+.payment-details .form-group {
+  margin-bottom: 24px;
+}
+
+.payment-details .form-group label {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.payment-details .form-group input,
+.payment-details .form-group select {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--light-gray);
+  border-radius: 4px;
+  background: none;
+  padding: 4px 16px;
+}
+
+.payment-details .form-group input:hover,
+.payment-details .form-group input:focus {
+  border-color: var(--button-bg-color);
+}
+
+.payment-details .form-group input:focus {
+  box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);
+}
+
+.payment-details .form-row {
+  display: flex;
+}
+
+.payment-details .form-row input {
+  max-width: 120px;
+}
+
+.payment-details .expiry-date {
+  width: 100%;
+  margin-right: 24px;
+}
+
+.payment-details .expiry-date .wrapper {
+  display: flex;
+  gap: 8px;
+}
