@@ -37,7 +37,7 @@ export default function ShopPage() {
         {products
           .filter((item) => !item.name.includes("2KIN"))
           .map((item) => {
-            return <ShopProductItem details={item} key={item.id} />;
+            return <ShopProductItem productItem={item} key={item.id} />;
           })}
       </div>
       <div className="product-info">

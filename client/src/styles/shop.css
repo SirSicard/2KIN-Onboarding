@@ -51,6 +51,11 @@
   margin-top: 20px;
   max-height: 50px;
 }
+.img-view img {
+  min-height: 36px;
+  max-width: 50px;
+  min-width: 50px;
+}
 /*product styling*/
 .product-content {
   max-height: 400px;
@@ -64,6 +69,11 @@
 .product-content input {
   max-width: 50px;
   max-height: 30px;
+}
+.product-content input[type="checkbox"] {
+    min-height: 20px;
+    min-width: 20px;
+    align-self: center;
 }
 .product-content h3 {
   text-align: start;
@@ -116,19 +126,28 @@ h3 {
     }
     .selectedImage img {
       max-height: 300px;
-      max-width: 200px;
+      max-width: 300px;
+      margin-bottom: 20px;
     }
     .shop-content {
       flex: 0 1 100%;
       flex-flow: column wrap;
       align-items: center;
     }
+    .shop-content p, span {
+      font-size: large;
+    }
+    .main-product {
+      width: 200px;
+    }
     .product-item {
       margin-left: auto;
       margin-right: auto;
-      align-self: center;
+      justify-self: center;
     }
     .product-content {
-      align-self: center;
+      justify-self: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 }
