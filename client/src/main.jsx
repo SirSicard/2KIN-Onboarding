@@ -31,9 +31,10 @@ const router = createBrowserRouter(
       <Route path="docs/:id" element={<DocsCategoryPage />} />
       <Route path="Apps" element={<AppstorePage />} />
       <Route path="register" element={<RegisterPage />} />
-      <Route path="user" element={<UserDashboard/>}>
-        <Route index element={<UserDashboard />} />
-        <Route path="add-product" element={<AddProduct />} />
+      <Route path="user" element={<UserDashboard />}>
+        <Route path="add-product" element={<AddProduct />}
+           default={true}
+        />
         <Route path="shop-history" element={<ShopHistory />} />
         <Route path="profile" element={<UserProfile />} />
         <Route path="billing" element={<BillingPage />} />

@@ -8,7 +8,10 @@ export default function UserDashboard() {
       <div className="dashboard">
         <ul className="dashboard-ul">
           <li className="dashboard-item">
-            <NavLink to="/user/add-product" activeclassname="active">
+            <NavLink
+              to="/user/add-product"
+              activeclassname="active"
+            >
               Products
             </NavLink>
           </li>
@@ -30,7 +33,7 @@ export default function UserDashboard() {
         </ul>
         <div className="dashboard-content">
           <Outlet />
-          </div>
+        </div>
       </div>
     </div>
   );
