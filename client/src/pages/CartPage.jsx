@@ -43,7 +43,7 @@ export default function CartPage() {
       <div className="cart-context">
         <p>product</p>
         <p>price per</p>
-        <p>quantiy</p>
+        <p>quantity</p>
         <p>total</p>
       </div>
       {cart?.map((item) => {

@@ -13,7 +13,6 @@ export default function CartItem({ cart, cartItem, setCart }) {
   }
 
   useEffect(() => {
-    console.log(inputs);
     if (cartItem.quantity <= 0) {
       const findIndex = cart.findIndex((item) => item.id == cartItem.id);
       const arr = [...cart];
@@ -43,6 +42,11 @@ export default function CartItem({ cart, cartItem, setCart }) {
     setInputs((values) => ({ ...values, ["quantity"]: inputs.quantity - 1 }));
     setCart(arr);
   }
+  //This function changes the quantity of items depending on selected input
+  function handleQuantityInput(event) {
+    const { value, name } = event.target;
+    setInputs((values) => ({ ...values, [name]: parseInt(value) }));
+  }
   //This function submits the changes of input when submitting
   function handleSubmit(event) {
     event.preventDefault();
@@ -51,11 +55,7 @@ export default function CartItem({ cart, cartItem, setCart }) {
     arr[findIndex] = { ...arr[findIndex], ["quantity"]: inputs.quantity };
     setCart(arr);
   }
-  //This function changes the quantity of items depending on selected input
-  function handleQuantityInput(event) {
-    const { value, name } = event.target;
-    setInputs((values) => ({ ...values, [name]: parseInt(value) }));
-  }
+
   console.log(cartItem.quantity);
   const total = cartItem.price * cartItem.quantity;
   return (
@@ -64,11 +64,12 @@ export default function CartItem({ cart, cartItem, setCart }) {
         <p>Remove</p>
       </div>
       <div className="cart-items">
-        <div>
+        <div className="product-name">
           <img src={cartItem["product-image"]}></img>
           <p>{cartItem.name}</p>
+          <p>{cartItem.price} $</p>
         </div>
-        <p>{cartItem.price}</p>
+        <p>{cartItem.price} $</p>
         <div className="quantity-content">
           <button onClick={decrementQuantity} value={cartItem.id}>
             -
@@ -89,7 +90,7 @@ export default function CartItem({ cart, cartItem, setCart }) {
             +
           </button>
         </div>
-        <p>{total}</p>
+        <p>{total} $</p>
       </div>
     </div>
   );
