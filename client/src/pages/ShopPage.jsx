@@ -22,7 +22,7 @@ export default function ShopPage() {
       <ShopImages />
       <div className="product-content">
         <h3>{mainProduct.name}</h3>
-        <div>
+        <div className="main-product">
         <form onSubmit={(e) => handleSubmit(e)} >
           <label>
             <span>Quantity: &nbsp; &nbsp;</span>

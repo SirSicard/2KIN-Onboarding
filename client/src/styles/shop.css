@@ -1,9 +1,12 @@
 .shop-content {
-  width: 100%;
+  max-width: 1500px;
   padding-top: 50px;
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*image styling*/
@@ -103,4 +106,24 @@ h3 {
 }
 .shop-content p {
   max-width: 80%;
+}
+
+@media (max-width: 700px) {
+    .image-content {
+      flex: 0 1 100%;
+      align-self: center;
+      max-width: fit-content;
+    }
+    .selectedImage img {
+      max-height: 300px;
+      max-width: 200px;
+    }
+    .shop-content {
+      flex: 0 1 100%;
+      flex-flow: column wrap;
+      align-items: center;
+    }
+    .product-content {
+      align-self: center;
+    }
 }
