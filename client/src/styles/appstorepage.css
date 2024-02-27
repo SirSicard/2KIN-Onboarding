@@ -1,0 +1,136 @@
+#appstore-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.appstore-titles {
+  padding: 15px;
+}
+
+.search-container {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#appstore-search {
+  padding: 10px 10px 10px 10px;
+  width: 500px;
+  height: 55px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px -4px #333333;
+  font-size: 16px;
+}
+
+.appstore-search-button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.appstore-search-button:hover {
+  background-color: #45a049;
+}
+
+#featured-apps-container {
+  background-color: #E0E0E0;
+  display: flex;
+  flex-direction: row;
+  overflow-y: hidden;
+  width: 100%;
+}
+
+.featured-apps-card {
+  height: 450px;
+  max-width: 300px;
+  min-width: 300px;
+  box-shadow: 0px 0px 10px -4px #333333;
+  margin: 20px 40px;
+  transition: transform 0.06s;
+}
+
+.featured-apps-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.featured-apps-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.appstore-titles {
+  margin: 15px 0 15px 0;
+}
+
+.browse-apps-card {
+  height: 130px;
+  width: 130px;
+  box-shadow: 0px 0px 10px -4px #333333;
+  margin: 20px;
+  transition: transform 0.1s;
+}
+
+.browse-apps-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.browse-apps-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+#browse-apps-container {
+  background-color: #E0E0E0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 0 15px 0;
+  flex-wrap: wrap;
+}
+
+.download-button {
+  display: none;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  padding: 10px;
+  background-color: #45a049;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.featured-apps-card:hover .download-button,
+.browse-apps-card:hover .download-button {
+  display: block;
+  opacity: 1;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  #appstore-search {
+    width: 100%;
+  }
+
+  .search-container {
+    width: 90%;
+  }
+}
