@@ -17,6 +17,15 @@ function Navbar({ onLoginClick }) {
           <span className="nav-login-btn">Login</span>
         </Link>
       </div>
+      <div className="dropdown-menu">
+      <NavLink to={"/shop"}>SHOP</NavLink>
+        <NavLink to="/docs">DOCS</NavLink>
+        <NavLink to={"/apps"}>APPSTORE</NavLink>
+        <NavLink to={"/cart"}>CART</NavLink>
+        <Link href="#" onClick={onLoginClick}>
+          <span className="nav-login-btn">Login</span>
+        </Link>
+      </div>
     </nav>
   );
 }

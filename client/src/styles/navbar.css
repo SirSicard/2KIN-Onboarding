@@ -1,3 +1,5 @@
+@import "../index.css";
+
 nav {
   height: 60px;
   padding: 0 10px 0 10px;
@@ -5,6 +7,10 @@ nav {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: var(--main-bg-color) ;
+  margin-bottom: 60px;
 }
 .nav-right a {
   padding: 20px;
@@ -21,4 +27,20 @@ nav .nav-login-btn {
 nav .nav-login-btn:hover {
   border-color: var(--button-hover-color);
   color: var(--button-hover-color);
+}
+
+
+.dropdown-menu {
+  display: none;
+}
+
+
+@media (max-width: 600px) {
+    .dropdown-menu {
+      display: unset;
+    }
+    .nav-right {
+      display: none;
+    }
+
 }
