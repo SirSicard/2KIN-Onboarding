@@ -11,30 +11,48 @@
 
 .tech-container {
     display: flex;
-    align-items: flex-start;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 40px 0;
 }
 
 .text-left,
-.text-right,
+.text-right {
+    flex: 0 0 70%;
+    text-align: center;
+    order: 1;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .img-left,
 .img-right {
-    flex: 0 0 40%;
+    flex: 0 0 100%;
+    width: 100%;
+    order: 2;
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.text-left {
-    text-align: left;
-}
+@media screen and (min-width: 1600px) {
+    .text-left,
+    .text-right,
+    .img-left,
+    .img-right {
+        flex: 0 0 40%; 
+    }
 
-.text-right {
-    text-align: left;
-}
+    .img-left {
+        order: -1;
+    }
 
-.img-left {
-    order: -1;
-}
+    .img-right {
+        order: 1;
+    }
 
-.img-right {
-    order: 1;
+    .text-left,
+    .text-right h3, p {
+        text-align: left;
+    }
 }
