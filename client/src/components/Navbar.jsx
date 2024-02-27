@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "../styles/navbar.css";
 import PropTypes from "prop-types";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 function Navbar({ onLoginClick }) {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -19,8 +19,9 @@ function Navbar({ onLoginClick }) {
   return (
     <nav>
     <div className="navbar-top">
-      <NavLink to="/">
-        <h1 className="Logo">2kin</h1>
+      <NavLink to="/">  
+        <h1 className="Logo" onClick={() => setActiveMenu(false)}
+        >2kin</h1>
       </NavLink>
       <div className="nav-right">
         <NavLink to={"/shop"}>SHOP</NavLink>

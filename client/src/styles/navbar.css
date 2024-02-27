@@ -12,6 +12,9 @@ nav > .navbar-top {
   background-color: var(--main-bg-color) ;
   margin-bottom: 60px;
 }
+.navbar-top > button {
+  display: none;
+}
 .nav-right a {
   padding: 20px;
   display: inline-block;
@@ -45,7 +48,7 @@ nav .nav-login-btn:hover {
       align-self: center;
     }
     .dropdown-menu  a {
-      border: 1px solid;
+      border-top: 1px solid;
       height: 150px;
       width: 100%;
       position: relative;
@@ -57,10 +60,11 @@ nav .nav-login-btn:hover {
    
     .navbar-top {
       display: flex;
-      
-        height: 700px;
+        
     }
-
+    .navbar-top > button {
+      display: unset;
+    }
    .nav-right {
       display: none;
       color:red;
