@@ -71,7 +71,7 @@
  https://stackoverflow.com/questions/13107118/how-to-remove-the-arrows-from-inputtype-number-in-opera  
  */
 .cart-items input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+.cart-items input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   appearance: none;
   text-decoration: none;
