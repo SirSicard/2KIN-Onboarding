@@ -6,9 +6,9 @@ function Footer() {
       <div className="footerContent">
         <div className="footerTop">
           <div className="footerLeft">
-            <Link>Shop</Link>
-            <Link>Docs</Link>
-            <Link>Apps</Link>
+            <Link to={"/shop"}>Shop</Link>
+            <Link to="/docs">Docs</Link>
+            <Link to={"/apps"}>Apps</Link>
           </div>
           <h2 id="footer-title">2Kin</h2>
           <div className="footerRight">

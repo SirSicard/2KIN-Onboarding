@@ -1,5 +1,5 @@
 footer{
-    max-height: 150px;
+    min-height: 150px;
     width: 100%;
     bottom: 0;
     display: flex;
@@ -23,7 +23,6 @@ footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .footerRight{
@@ -76,11 +75,27 @@ hr {
 @media (max-width: 500px) {
     .footerTop {
         flex-direction: column;
+        padding: 0 0 10px 0;
     }
 
     .footerRight{
         display: flex;
         flex-direction: row-reverse;
         min-width: fit-content;
+        order: 3;
+        margin: 10px 0;
+        min-width: 0;
+    }
+    .footerLeft{
+        min-width: 0;
+        order: 2;
+        margin: 10px 0;
+    }
+    #footer-title{
+        order: 1;
+    }
+    #footer-bottom-wrapper{
+        display: none;
     }
 }
+
