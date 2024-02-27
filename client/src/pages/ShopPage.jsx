@@ -11,27 +11,34 @@ export default function ShopPage() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(quantity)
+    console.log(quantity);
   }
 
   function handleInputChange(event) {
-      setQuantity(event.target.value)
+    setQuantity(event.target.value);
   }
   return (
     <div className={"shop-content"}>
       <ShopImages />
       <div className="product-content">
         <h3>{mainProduct.name}</h3>
+        <p>{mainProduct.price} $</p>
         <div className="main-product">
-        <form onSubmit={(e) => handleSubmit(e)} >
-          <label>
-            <span>Quantity: &nbsp; &nbsp;</span>
-            <input type="number" onChange={handleInputChange} 
-             min={1} max={99} name="quantity" />{" "}
-            <input type="submit" hidden />
-            &nbsp;&nbsp;&nbsp;
-            <span>{mainProduct.price} $ st</span>
-          </label></form>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <label>
+              <span>Quantity: &nbsp; &nbsp;</span>
+              <input
+                type="number"
+                onChange={handleInputChange}
+                min={1}
+                max={99}
+                name="quantity"
+              />{" "}
+              <input type="submit" hidden />
+              &nbsp;&nbsp;&nbsp;
+              <span>{mainProduct.price} $ st</span>
+            </label>
+          </form>
         </div>
         {/* Maps out all products except for the "main product" */}
         {products
@@ -41,9 +48,9 @@ export default function ShopPage() {
           })}
       </div>
       <div className="product-info">
-        <button type="submit">Add to cart</button>
+        <h3>Total Price: 200 $</h3>
 
-        <h3>Price: 200 $</h3>
+        <button type="submit">Add to cart</button>
 
         <h4>Product info</h4>
 

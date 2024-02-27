@@ -71,9 +71,9 @@
   max-height: 30px;
 }
 .product-content input[type="checkbox"] {
-    min-height: 20px;
-    min-width: 20px;
-    align-self: center;
+  min-height: 20px;
+  min-width: 20px;
+  align-self: center;
 }
 .product-content h3 {
   text-align: start;
@@ -86,9 +86,19 @@
   max-height: 20px;
   margin-bottom: 50px;
 }
+.product-content p:nth-child(2) {
+  display: none;
+}
+/*product items*/
 .product-item {
   align-self: center;
   margin-left: auto;
+}
+.product-item > img {
+  max-width: 60px;
+  height: 40px;
+  align-self: center;
+  margin-right: 10px;
 }
 
 /*product info and button to add to cart */
@@ -119,35 +129,57 @@ h3 {
 }
 
 @media (max-width: 650px) {
-    .image-content {
-      flex: 0 1 100%;
-      align-self: center;
-      max-width: fit-content;
-    }
-    .selectedImage img {
-      max-height: 300px;
-      max-width: 300px;
-      margin-bottom: 20px;
-    }
-    .shop-content {
-      flex: 0 1 100%;
-      flex-flow: column wrap;
-      align-items: center;
-    }
-    .shop-content p, span {
-      font-size: large;
-    }
-    .main-product {
-      width: 200px;
-    }
-    .product-item {
-      margin-left: auto;
-      margin-right: auto;
-      justify-self: center;
-    }
-    .product-content {
-      justify-self: center;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  .image-content {
+    flex: 0 1 100%;
+    align-self: center;
+    max-width: fit-content;
+  }
+  .selectedImage img {
+    max-height: 300px;
+    max-width: 300px;
+    margin-bottom: 20px;
+  }
+  .shop-content {
+    flex: 0 1 100%;
+    flex-flow: column wrap;
+    align-items: center;
+  }
+  .product-info > h3 {
+    margin-bottom: 50px;
+  }
+  .shop-content p,
+  span {
+    font-size: large;
+  }
+  .main-product span:first-child {
+    font-size: x-large;
+  }
+  .main-product span:last-child {
+    display: none;
+  }
+  .main-product input[type="number"] {
+    height: 30px;
+    width: 30px;
+  }
+  .main-product {
+    width: 300px;
+  }
+  .product-item {
+    margin-left: auto;
+    margin-right: 100px;
+    min-width: 300px;
+  }
+  .product-item > img {
+    margin-right: 50px;
+  }
+  .product-content {
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .product-content p:nth-child(2) {
+    display: unset;
+    text-align: center;
+    margin-top: 0px;
+  }
 }
