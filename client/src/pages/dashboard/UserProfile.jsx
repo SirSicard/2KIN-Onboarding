@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import '../../styles/userProfile.css';
 export default function UserProfile() {
-    const [imagePreview, setImagePreview] = useState('');
-    
+  const [imagePreview, setImagePreview] = useState('');
+
+  // Function to handle image change
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -14,10 +15,9 @@ export default function UserProfile() {
   return (
     <div>
       <div className="container-lg">
-        <h5 className="card-title">User Profile</h5>
         <div className="row">
-          <div className="col-lg-3">
-            <div className="card-body">
+          {/* <div className="col-lg-3"> */}
+          {/* <div className="card-body">
               <div>
                 <input
                   type="file"
@@ -39,20 +39,79 @@ export default function UserProfile() {
                       <span className="material-icons">Upload</span>
                     )}
                   </div>
-                </label>
+                </label> 
               </div>
-            </div>
+            </div>*/}
+          {/* </div> */}
+          <div className="billing-form-group-info">
+            <form>
+              <h2>User Profile</h2>
+              <div className="billing-form-group-1">
+                <div className="billing-form-group">
+                  <label htmlFor="firstName">First Name</label>
+                  <input type="text" id="name" name="firstName" required />
+                </div>
+                <div className="billing-form-group">
+                  <label htmlFor="lastName">Last Name</label>
+                  <input type="text" id="name" name="lastName" required />
+                </div>
+              </div>
+              <div className="billing-form-group">
+                <label htmlFor="address">Address</label>
+                <input type="text" id="address" name="address" required />
+              </div>
+              <div className="billing-form-group">
+                <label htmlFor="city">City</label>
+                <input type="text" id="city" name="city" required />
+              </div>
+              <div className="billing-form-group">
+                <label htmlFor="state">State</label>
+                <input type="text" id="state" name="state" required />
+              </div>
+              <div className="billing-form-group">
+                <label htmlFor="zip">Zip</label>
+                <input type="text" id="zip" name="zip" required />
+              </div>
+            </form>
           </div>
-          <form>
-            <input type="text" className="form-control" placeholder="Name" />
-            <input type="text" className="form-control" placeholder="Email" />
-            <input type="text" className="form-control" placeholder="Phone" />
-
-            <button type="submit" className="btn btn-primary">
-              Update
-            </button>
-          </form>
+          <div className="billing-form-group-pass">
+            <form>
+              <h2>Change Password</h2>
+              <div className="billing-form-group">
+                <label htmlFor="oldPassword">Old Password</label>
+                <input
+                  type="oldPassword"
+                  id="oldPassword"
+                  name="oldPassword"
+                  required
+                />
+              </div>
+              <div className="billing-form-group">
+                <label htmlFor="newPassword">Repeat Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="newPassword"
+                  required
+                />
+              </div>
+              <div className="billing-form-group">
+                <label htmlFor="newPassword">New Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="newPassword"
+                  required
+                />
+              </div>
+            </form>
+          </div>
         </div>
+        <div className="update-btn">
+        <button type="submit" className="btn btn-primary">
+          Update
+          </button>
+          </div>
       </div>
     </div>
   );
