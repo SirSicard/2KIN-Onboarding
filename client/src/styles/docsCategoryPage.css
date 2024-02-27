@@ -1,3 +1,6 @@
+.categoryLogo {
+  height: 600px;
+}
 .docsContainer {
     display: flex;
     flex-direction: column;
@@ -6,4 +9,14 @@
     margin: 0 auto;
     padding: 20px;
   }
-  
+  .catTitle{
+    font-size: 50px;
+  }
+  .cat-text {
+    font-size: 20px;
+  }
+  @media (max-width: 768px) {
+    .categoryLogo {
+    height: 300px;
+    }
+  }

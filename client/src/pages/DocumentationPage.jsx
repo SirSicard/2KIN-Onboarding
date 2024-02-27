@@ -14,7 +14,13 @@ export const mockData = [
 function DocumentationPage() {
   return (
     <div className='docsOverview'>
-      <h3>2Kin Documentation</h3>
+      <div className='header'>
+        <div className='header-content'>
+          <h3 className='docs-title'>2Kin Documentation</h3>
+          <p className='subtitle'>Type something interesting here</p>
+        </div>
+        <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png" alt="Logo" className="docs-logo" />
+      </div>
       <div className="docs-search-container">
         <input
           type="text"
