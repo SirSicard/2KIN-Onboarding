@@ -36,7 +36,7 @@ export default function AddProduct() {
           <input type="file" className="form-control-file" id="productImage" />
         </div>
         <button type="submit" className="btn btn-primary">
-          Submit
+          Add Product
         </button>
       </form>
    

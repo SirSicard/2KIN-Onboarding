@@ -1,0 +1,91 @@
+
+
+.container-lg{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 100vh;
+    background-color: hsl(0, 0%, 100%);
+    display: block;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 26px;
+}
+
+.col-lg-3{
+    max-width: 400px;
+    cursor: pointer;
+}
+
+
+.card-body{
+    width: 100%;
+    padding: 12px;
+    border: none;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+}
+
+.form-control{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+        border: none;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+   
+}
+
+.form-control:focus{
+    outline: none;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btn{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #b6b6b6;
+} 
+
+
+.image-cover{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    cursor: pointer;
+
+
+}
+.material-icons{
+    font-size: 20px;
+    line-height: 150px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+}
+.img-fluid{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
