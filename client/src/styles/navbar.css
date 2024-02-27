@@ -1,6 +1,6 @@
 @import "../index.css";
 
-nav {
+nav > .navbar-top {
   height: 60px;
   padding: 0 10px 0 10px;
   display: flex;
@@ -29,18 +29,41 @@ nav .nav-login-btn:hover {
   color: var(--button-hover-color);
 }
 
-
 .dropdown-menu {
   display: none;
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .dropdown-menu {
-      display: unset;
+      top:60px;
+      display: flex;
+      width: 100%;
+      position: fixed;
+      flex-flow: row wrap;
+      background-color: var(--main-bg-color);
+      align-self: center;
     }
-    .nav-right {
+    .dropdown-menu  a {
+      border: 1px solid;
+      height: 150px;
+      width: 100%;
+      position: relative;
+      justify-self: flex-end;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+   
+    .navbar-top {
+      display: flex;
+      
+        height: 700px;
+    }
+
+   .nav-right {
       display: none;
+      color:red;
     }
 
 }
