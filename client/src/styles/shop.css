@@ -158,8 +158,9 @@ h3 {
     display: none;
   }
   .main-product input[type="number"] {
+    -moz-appearance: textfield;
     height: 30px;
-    width: 30px;
+    width: 60px;
   }
   .main-product {
     width: 300px;
