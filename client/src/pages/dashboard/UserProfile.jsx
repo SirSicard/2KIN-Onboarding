@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react';
 import '../../styles/userProfile.css';
 export default function UserProfile() {
-  const [imagePreview, setImagePreview] = React.useState('');
+  const [imagePreview, setImagePreview] = useState('');
+
+  // Function to handle image change
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
