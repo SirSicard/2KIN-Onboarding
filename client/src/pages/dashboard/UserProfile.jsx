@@ -87,7 +87,7 @@ export default function UserProfile() {
                 />
               </div>
               <div className="billing-form-group">
-                <label htmlFor="newPassword">Repeat Password</label>
+                <label htmlFor="newPassword">New Password</label>
                 <input
                   type="password"
                   id="password"
@@ -96,7 +96,7 @@ export default function UserProfile() {
                 />
               </div>
               <div className="billing-form-group">
-                <label htmlFor="newPassword">New Password</label>
+                <label htmlFor="newPassword">Repeat Password</label>
                 <input
                   type="password"
                   id="password"
@@ -108,10 +108,10 @@ export default function UserProfile() {
           </div>
         </div>
         <div className="update-btn">
-        <button type="submit" className="btn btn-primary">
-          Update
+          <button type="submit" className="btn btn-primary">
+            Update
           </button>
-          </div>
+        </div>
       </div>
     </div>
   );
