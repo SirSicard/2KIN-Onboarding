@@ -1,10 +1,19 @@
-nav {
+@import "../index.css";
+
+nav > .navbar-top {
   height: 60px;
   padding: 0 10px 0 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: var(--main-bg-color) ;
+  margin-bottom: 60px;
+}
+.navbar-top > button {
+  display: none;
 }
 .nav-right a {
   padding: 20px;
@@ -21,4 +30,45 @@ nav .nav-login-btn {
 nav .nav-login-btn:hover {
   border-color: var(--button-hover-color);
   color: var(--button-hover-color);
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+
+@media (max-width: 700px) {
+    .dropdown-menu {
+      top:60px;
+      display: flex;
+      width: 100%;
+      position: fixed;
+      flex-flow: column wrap;
+      background-color: var(--main-bg-color);
+      align-self: center;
+      height: 100vh;
+    }
+    .dropdown-menu > a {
+      border-top: 1px solid;
+      height: 150px;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+    .dropdown-menu > a:last-child {
+      border-bottom: 1px solid;
+    }
+    .navbar-top {
+      display: flex;
+        
+    }
+    .navbar-top > button {
+      display: unset;
+    }
+   .nav-right {
+      display: none;
+      color:red;
+    }
+
 }
