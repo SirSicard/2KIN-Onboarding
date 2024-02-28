@@ -12,6 +12,9 @@ nav > .navbar-top {
   background-color: var(--main-bg-color) ;
   margin-bottom: 60px;
 }
+.navbar-cart {
+  font-size: x-large;
+}
 .navbar-top > button {
   display: none;
 }
@@ -65,6 +68,16 @@ nav .nav-login-btn:hover {
     }
     .navbar-top > button {
       display: unset;
+      width: 60px;
+      height: 40px;
+      align-items: center;
+      display: flex;
+    }
+
+    .navbar-top > button > svg {
+      width: 100px;
+      font-size: 30px;
+      align-self: center;
     }
    .nav-right {
       display: none;
