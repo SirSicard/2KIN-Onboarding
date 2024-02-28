@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import "../styles/docsPage.css";
 
 export const mockData = [
@@ -23,8 +23,8 @@ function DocumentationPage() {
   };
 
   useEffect(() => {
-    handleSearch(); // Uppdatera sökresultaten när komponenten laddas för första gången
-  }, []); // Använd en tom beroendelista för att köra effekten en gång vid start
+    handleSearch();
+  }, []);
 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
