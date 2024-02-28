@@ -43,21 +43,22 @@ nav .nav-login-btn:hover {
       display: flex;
       width: 100%;
       position: fixed;
-      flex-flow: row wrap;
+      flex-flow: column wrap;
       background-color: var(--main-bg-color);
       align-self: center;
+      height: 100vh;
     }
-    .dropdown-menu  a {
+    .dropdown-menu > a {
       border-top: 1px solid;
       height: 150px;
       width: 100%;
-      position: relative;
-      justify-self: flex-end;
       justify-content: center;
       text-align: center;
       padding: 40px;
     }
-   
+    .dropdown-menu > a:last-child {
+      border-bottom: 1px solid;
+    }
     .navbar-top {
       display: flex;
         
