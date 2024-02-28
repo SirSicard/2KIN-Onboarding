@@ -10,18 +10,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 0 24px;
+    gap: 18px;
+    margin-bottom: 52px;
 }
 
 
 .shop-history{
-    /* width: 100%;
- max-width: 800px; */
-    padding: 20px; 
-
-
-
+    width: 100%;
+ max-width: 1200px;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -37,13 +35,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 24px;
+    border: 1px solid var(--soft-gray-color);
+    padding: 24px;
 }
-
-
-
-
-
 
 
 .product-card-h{

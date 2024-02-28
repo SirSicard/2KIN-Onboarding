@@ -80,7 +80,7 @@ export default function UserProfile() {
               <div className="billing-form-group">
                 <label htmlFor="oldPassword">Old Password</label>
                 <input
-                  type="oldPassword"
+                  type="current-password"
                   id="oldPassword"
                   name="oldPassword"
                   required
