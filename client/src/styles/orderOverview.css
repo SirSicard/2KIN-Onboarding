@@ -1,0 +1,93 @@
+.order-overview {
+  margin: 16px;
+  padding: 16px;
+  box-shadow: 2px 1px 21px -9px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.order-overview h2 {
+  margin: 0 0 16px;
+}
+
+.order-overview .product-item {
+  width: 100%;
+}
+
+.order-overview .product-details,
+.order-overview .total-price {
+  display: flex;
+}
+
+.order-overview .total-price {
+  justify-content: space-between;
+}
+
+.order-overview .product-details img {
+  padding: 8px;
+}
+
+.order-overview .product-details h3 {
+  padding-left: 16px;
+}
+
+.order-overview .total-price {
+  margin-top: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.order-overview .total-price p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.order-overview .product-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.order-overview .product-quantity input {
+  width: 48px;
+  height: 32px;
+  margin: 0 8px;
+  border: 0;
+  border-bottom: 2px solid var(--light-gray);
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+}
+
+.order-overview .product-quantity input:focus {
+  border-color: var(--main-primary-text-color);
+  font-weight: 600;
+}
+
+.product-quantity input[type="number"]::-webkit-inner-spin-button,
+.product-quantity input[type="number"]::-webkit-outer-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.product-quantity input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.order-overview .product-quantity button {
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+}
+
+.order-overview .tax,
+.order-overview .total-amount {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding: 16px 0;
+  border-top: 2px solid var(--main-primary-text-color);
+  font-size: 24px;
+  font-weight: 600;
+}
