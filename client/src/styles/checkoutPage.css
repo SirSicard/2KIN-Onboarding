@@ -1,0 +1,20 @@
+.checkout-page {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.checkout-page .checkout-btn {
+  display: block;
+  padding: 8px 16px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .checkout-page .flex-container {
+    display: flex;
+  }
+
+  .checkout-page .flex-column {
+    flex: 1;
+  }
+}
