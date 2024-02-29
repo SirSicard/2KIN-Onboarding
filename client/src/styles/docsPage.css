@@ -25,7 +25,7 @@
 }
 
 .docs-logo {
-  height: 200px; /* Adjust as needed */
+  height: 200px;
 }
 
 .docs-search-container {
@@ -99,17 +99,18 @@
   .docs-search-container {
     width: 90%;
   }
+
   @media (max-width: 630px) {
     .header {
       flex-direction: column-reverse;
     }
-  
+
     .header-content {
       text-align: center;
     }
-  
+
     .docs-logo {
       margin-top: 20px;
     }
-}
+  }
 }
