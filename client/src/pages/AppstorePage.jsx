@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import "../styles/appstorepage.css";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faX} from "@fortawesome/free-solid-svg-icons"
 
 export const mockApps = [
   {
@@ -97,7 +99,7 @@ export const mockApps = [
 
 function AppstorePage() {
   const [searchInput, setSearchInput] = useState("");
-  const [filteredApps, setFilteredApps] = useState(mockApps); // Start with all apps displayed
+  const [filteredApps, setFilteredApps] = useState(mockApps);
   const [searchPerformed, setSearchPerformed] = useState(false);
 
   const handleSearchChange = (e) => {
@@ -106,15 +108,26 @@ function AppstorePage() {
 
   const handleSearchButtonClick = () => {
     const trimmedSearchInput = searchInput.trim();
-    setSearchPerformed(trimmedSearchInput !== ""); // Set to true if search input is not empty
+    setSearchPerformed(trimmedSearchInput !== "");
 
-    // Update filteredApps based on the search input when the button is clicked
     setFilteredApps(
-      trimmedSearchInput === "" ? mockApps : // If no search input, show all apps
+      trimmedSearchInput === "" ? mockApps :
       mockApps.filter((app) =>
         app.title.toLowerCase().includes(trimmedSearchInput.toLowerCase())
       )
     );
+  };
+
+  const handleResetButtonClick = () => {
+    setSearchInput("");
+    setSearchPerformed(false);
+    setFilteredApps(mockApps);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchButtonClick();
+    }
   };
 
   return (
@@ -128,17 +141,22 @@ function AppstorePage() {
             className="search-input"
             value={searchInput}
             onChange={handleSearchChange}
+            onKeyPress={handleKeyPress}
           />
           <button
-            type="button" // Use type="button" to prevent form submission
+            type="button"
             className="appstore-search-button"
             onClick={handleSearchButtonClick}
           >
             Search
           </button>
+          <FontAwesomeIcon icon={faX} 
+            type="button"
+            className="appstore-reset-button"
+            onClick={handleResetButtonClick}
+            />
         </div>
 
-        {/* Render Featured Apps only if search is not performed or search input is not empty */}
         {!searchPerformed && (
           <>
             <h1 className="appstore-titles">Featured Apps</h1>
