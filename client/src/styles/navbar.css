@@ -1,10 +1,22 @@
-nav {
+@import "../index.css";
+
+nav > .navbar-top {
   height: 60px;
   padding: 0 10px 0 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  background-color: var(--main-bg-color) ;
+  margin-bottom: 60px;
+}
+.navbar-cart {
+  font-size: x-large;
+}
+.navbar-top > button {
+  display: none;
 }
 .nav-right a {
   padding: 20px;
@@ -21,4 +33,61 @@ nav .nav-login-btn {
 nav .nav-login-btn:hover {
   border-color: var(--button-hover-color);
   color: var(--button-hover-color);
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+
+@media (max-width: 700px) {
+    .dropdown-menu {
+      top:60px;
+      display: flex;
+      width: 100%;
+      position: fixed;
+      flex-flow: column wrap;
+      background-color: var(--main-bg-color);
+      align-self: center;
+      height: 100vh;
+    }
+    .dropdown-menu > a {
+      border-top: 1px solid;
+      height: 150px;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+    }
+    .dropdown-menu > a:last-child {
+      border-bottom: 1px solid;
+    }
+    .navbar-top {
+      display: flex;
+        
+    }
+    /* button for dropdown menu */
+    .navbar-top > button {
+      display: unset;
+      width: 60px;
+      height: 40px;
+      align-items: center;
+      display: flex;
+      background-color: unset;
+      color: var(--button-bg-color)
+    }
+    /* Removes hover effect on button of dropdown menu */
+    .navbar-top > button:hover {
+      background-color: unset;
+    }
+    .navbar-top > button > svg {
+      width: 100px;
+      font-size: 30px;
+      align-self: center;
+    }
+   .nav-right {
+      display: none;
+      color:red;
+    }
+
 }
