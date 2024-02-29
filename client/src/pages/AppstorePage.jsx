@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import "../styles/appstorepage.css";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faX} from "@fortawesome/free-solid-svg-icons"
 
 export const mockApps = [
   {
@@ -96,45 +98,91 @@ export const mockApps = [
 ];
 
 function AppstorePage() {
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredApps, setFilteredApps] = useState(mockApps);
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
+  const handleSearchChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleSearchButtonClick = () => {
+    const trimmedSearchInput = searchInput.trim();
+    setSearchPerformed(trimmedSearchInput !== "");
+
+    setFilteredApps(
+      trimmedSearchInput === "" ? mockApps :
+      mockApps.filter((app) =>
+        app.title.toLowerCase().includes(trimmedSearchInput.toLowerCase())
+      )
+    );
+  };
+
+  const handleResetButtonClick = () => {
+    setSearchInput("");
+    setSearchPerformed(false);
+    setFilteredApps(mockApps);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSearchButtonClick();
+    }
+  };
 
   return (
     <>
       <div id="appstore-container">
-      <div className="search-container">
+        <div className="search-container">
           <input
             type="search"
             id="appstore-search"
             placeholder="Enter your search query"
             className="search-input"
+            value={searchInput}
+            onChange={handleSearchChange}
+            onKeyPress={handleKeyPress}
           />
-          <button type="submit" className="appstore-search-button">Search</button>
-          </div>
-        <h1 className="appstore-titles">Featured Apps</h1>
-        <div id="featured-apps-container">
-          {mockApps
-            .filter((app) => app.isFeatured)
-            .map((app) => (
-              <Link key={app.id} to={`/apps/${app.id}`}>
-              <div
-                key={`featured-app-${app.id}`}
-                className="featured-apps-card"
-              >
-                <img src={app.imageUrl} alt={`App ${app.id}`} />
-                <button className="download-button">Download</button>
-              </div>
-              </Link>
-            ))}
+          <button
+            type="button"
+            className="appstore-search-button"
+            onClick={handleSearchButtonClick}
+          >
+            Search
+          </button>
+          <FontAwesomeIcon icon={faX} 
+            type="button"
+            className="appstore-reset-button"
+            onClick={handleResetButtonClick}
+            />
         </div>
+
+        {!searchPerformed && (
+          <>
+            <h1 className="appstore-titles">Featured Apps</h1>
+            <div id="featured-apps-container">
+              {mockApps
+                .filter((app) => app.isFeatured)
+                .map((app) => (
+                  <Link key={app.id} to={`/apps/${app.id}`}>
+                    <div key={`featured-app-${app.id}`} className="featured-apps-card">
+                      <img src={app.imageUrl} alt={`App ${app.id}`} />
+                      <button className="download-button">Download</button>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+          </>
+        )}
 
         <h1 className="appstore-titles">Browse apps</h1>
         <div id="browse-apps-container">
-          {mockApps.map((app) => (
+          {filteredApps.map((app) => (
             <Link key={app.id} to={`/apps/${app.id}`}>
-            <div key={`browse-app-${app.id}`} className="browse-apps-card">
-              <img src={app.imageUrl} alt={`App ${app.id}`} />
-              <button className="download-button">Download</button>
-            </div>
+              <div key={`browse-app-${app.id}`} className="browse-apps-card">
+                <img src={app.imageUrl} alt={`App ${app.id}`} />
+                <button className="download-button">Download</button>
+              </div>
             </Link>
           ))}
         </div>

@@ -124,6 +124,24 @@
   position: absolute;
 }
 
+.appstore-reset-button {
+  position: absolute;
+  top: 50%;
+  right: 70px;
+  transform: translateY(-50%);
+  padding: 10px;
+  color: var(--main-primary-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.3s;
+}
+
+.appstore-reset-button:hover {
+  color: black;
+}
+
 @media (max-width: 768px) {
   #appstore-search {
     width: 100%;
