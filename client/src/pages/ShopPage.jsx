@@ -3,43 +3,22 @@ import "../styles/shop.css";
 import product from "../utils/products.json";
 import ShopImages from "../components/ShopImages";
 import ShopProductItem from "../components/ShopProductItem";
+import MainProductItem from "../components/MainProductItem";
 export default function ShopPage() {
+  
   const clonedProduct = structuredClone(product);
   const [products, setProducts] = useState(clonedProduct);
-  const [quantity, setQuantity] = useState();
   const mainProduct = products[0];
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log(quantity);
-  }
-
-  function handleInputChange(event) {
-    setQuantity(event.target.value);
-  }
+  const [inputs, setInputs] = useState([mainProduct]);
+  console.log(inputs)
   return (
     <div className={"shop-content"}>
       <ShopImages />
       <div className="product-content">
-        <h3>{mainProduct.name}</h3>
-        <p>{mainProduct.price} $</p>
-        <div className="main-product">
-          <form onSubmit={(e) => handleSubmit(e)}>
-            <label>
-              <span>Quantity: &nbsp; &nbsp;</span>
-              <input
-                type="number"
-                onChange={handleInputChange}
-                min={1}
-                max={99}
-                name="quantity"
-              />{" "}
-              <input type="submit" hidden />
-              &nbsp;&nbsp;&nbsp;
-              <span>{mainProduct.price} $ st</span>
-            </label>
-          </form>
-        </div>
+        <MainProductItem
+        inputs={inputs} setInputs={setInputs}
+         mainProduct={mainProduct}
+         />
         {/* Maps out all products except for the "main product" */}
         {products
           .filter((item) => !item.name.includes("2KIN"))

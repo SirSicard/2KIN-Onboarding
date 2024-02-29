@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 
-export default function ShopProductItem({ productItem }) {
+export default function ShopProductItem({ productItem, inputs, setInputs }) {
   const { name, price } = productItem;
   return (
     <div className="product-item">

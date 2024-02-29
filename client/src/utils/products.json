@@ -3,18 +3,21 @@
     "id": 1,
     "name": "2KIN product",
     "img": "",
+    "quantity": 1,
     "price": 20
 },
 {
     "id": 2,
     "name": "Extra 1",
     "img": "",
+    "quantity": 0,
     "price": 10
 },
 {
     "id": 3,
     "name": "Extra 2",
     "img": "",
+    "quantity": 0,
     "price": 10
 }
 

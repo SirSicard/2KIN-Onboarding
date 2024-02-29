@@ -1,29 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CartItem from "../components/CartItem";
 import "../styles/cart.css"
 
 import {useNavigate} from "react-router-dom";
+import GlobalContext from "../GlobalContext";
 
 export default function CartPage() {
-  const mockCart = [
-    {
-        "id": 1,
-      "name": "2KIN-product",
-      "product-image": "https://via.placeholder.com/600x425",
-      "price": 20,
-      "quantity": 3,
-    },
-    {
-      "id": 2,
-      "name": "Extra 1",
-      "product-image": "https://via.placeholder.com/600x425",
-      "price": 10,
-      "quantity": 2,
-    }
-  ];
+  const {cart, setCart} = useContext(GlobalContext);
 
-  const [cart, setCart] = useState(mockCart);
-  
+ 
+
   const navigate = useNavigate();
 
 
