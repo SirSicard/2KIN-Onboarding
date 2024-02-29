@@ -1,9 +1,6 @@
 
 import { PropTypes } from 'prop-types';
-import { useContext, useState } from 'react';
-import GlobalContext from '../GlobalContext';
 export default function MainProductItem({mainProduct, inputs, setInputs}) {
-    const {cart, setCart} = useContext(GlobalContext);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -12,7 +9,7 @@ export default function MainProductItem({mainProduct, inputs, setInputs}) {
   }
 
   function handleInputChange(event) {
-    const {target, value} = event.target;
+    const { value} = event.target;
 
     const arr = [...inputs];
     const findIndex = arr.findIndex((item) => item.id == mainProduct.id);

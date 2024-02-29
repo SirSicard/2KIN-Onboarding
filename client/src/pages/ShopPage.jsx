@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "../styles/shop.css";
 import product from "../utils/products.json";
 import ShopImages from "../components/ShopImages";
 import ShopProductItem from "../components/ShopProductItem";
 import MainProductItem from "../components/MainProductItem";
+import GlobalContext from "../GlobalContext";
 export default function ShopPage() {
-  
+  const {cart, setCart} = useContext(GlobalContext);
   const clonedProduct = structuredClone(product);
   const [products, setProducts] = useState(clonedProduct);
   const mainProduct = products[0];
   const [inputs, setInputs] = useState([mainProduct]);
   console.log(inputs)
+  function addItemsToCart(){
+    setCart(inputs)
+  }
+
+  const totalPrice = inputs.reduce((sum, item) => {
+    return sum += (item.price * item.quantity);
+  }, 0 );
   return (
     <div className={"shop-content"}>
       <ShopImages />
@@ -23,13 +31,15 @@ export default function ShopPage() {
         {products
           .filter((item) => !item.name.includes("2KIN"))
           .map((item) => {
-            return <ShopProductItem productItem={item} key={item.id} />;
+            return <ShopProductItem 
+            inputs={inputs} setInputs={setInputs}
+            productItem={item} key={item.id} />;
           })}
       </div>
       <div className="product-info">
-        <h3>Total Price: 200 $</h3>
+        <h3>Total Price: {totalPrice} $</h3>
 
-        <button type="submit">Add to cart</button>
+        <button type="submit" onClick={() => addItemsToCart()}>Add to cart</button>
 
         <h4>Product info</h4>
 
