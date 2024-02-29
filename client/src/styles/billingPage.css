@@ -53,7 +53,8 @@ gap: 20px;
   gap: 10px;
 }
 
-.billing-container p, h4 {
+.billing-container p,
+.billing-container h4 {
 color: #7b7b7b;
 }
 

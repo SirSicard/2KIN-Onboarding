@@ -37,7 +37,7 @@ export default function CartPage() {
   console.log(subtotal);
   return (
     <div className="cart-content">
-      <h3>Your cart</h3>
+      <h2>Your cart</h2>
       {cart.length !== 0 ? 
       <>
       <div className="cart-context">
