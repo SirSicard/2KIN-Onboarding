@@ -17,10 +17,11 @@ function DocumentationPage() {
 
   const handleSearch = () => {
     const results = mockData.filter(item =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) || item.content.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setSearchResults(results);
   };
+  
 
   useEffect(() => {
     handleSearch();
