@@ -1,0 +1,274 @@
+
+
+:root {
+  --primary-color: #00897B;
+  --secondary-color:  #333333;
+  --tertiary-color: #FAF9F6;
+  --quaternary-color:  #FF7043;
+  --soft-gray-color:  #E0E0E0;
+}
+/* billingPage.css */
+
+.billing-container {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 52px;
+}
+
+.billing-header {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+
+
+.payment {
+  position: relative;
+  width: 100%;
+  min-width: 800px;
+  max-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  gap: 20px;
+  
+}
+
+.address-info,
+.payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+p, h4 {
+color: #7b7b7b;
+}
+
+.edit-btn{
+  background-color: var(--tertiary-color);
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+
+.btn-1{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 26px 12px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+
+}
+
+
+.edit-btn:nth-child( 2) {
+  color: var(--quaternary-color)
+}
+
+.edit-btn:hover {
+  background-color: var(--soft-gray-color);
+}
+
+
+/* payment form */
+
+.billing-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+ 
+}
+
+.billing-form-group-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  
+
+}
+
+.billing-form-group {
+ 
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+.billing-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5e5e5e;
+}
+
+.billing-form-group input {
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.billing-form-group-2 {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  
+}
+
+.billing-form-group-2 button:nth-child(1) {
+  width: 100%;
+  background-color: #232323;
+  font-size: 14px;
+  font-weight: 400;
+  color: #dedede;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+}
+
+.billing-form-group-2 button:nth-child(2) {
+  width: 100%;
+  background-color: #238636;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+ 
+}
+
+
+
+
+/* billingPage.css */
+.payment-options {
+  margin-bottom: 16px;
+}
+
+.payment-option {
+  padding: 8px 16px;
+  margin-right: 8px;
+  border: 1px solid #838383;
+  border-radius: 10px;
+  background-color: #242424;
+  cursor: pointer;
+}
+
+.payment-option.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.payment-option:not(.active):hover {
+  background-color: #484848;
+}
+
+.expiration-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.expiration-options label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5e5e5e;
+}
+
+.expiration-options-g{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.expiration-options select {
+  padding: 10px;
+  border: 1px solid #838383;
+  border-radius: 5px;
+  width: 100%;
+}
+.billing-form-group-m input {
+  padding: 10px;
+  border: 1px solid #838383;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.billing-form label {
+  font-size: 16px;
+  font-weight: 800;
+  color: #020101;
+}
+
+.btn-paypal {
+  background-color: #236efa;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  max-width: 150px;
+  margin-top: 10px;
+}
+.btn-cancel{
+  background-color: #171717;
+  padding: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #e3e3e3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  max-width: 150px;
+  margin-top: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+  h3{
+    font-size: 1rem;
+  }
+
+  .edit-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+}
