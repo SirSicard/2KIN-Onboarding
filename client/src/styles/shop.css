@@ -103,17 +103,18 @@
 
 /*product info and button to add to cart */
 .product-info {
-  padding-top: 30px;
+  padding-top: 40px;
   justify-self: center;
   max-width: 100%;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   flex: 0 1 100%;
+  gap: 30px;
 }
 
 .product-info h4,
-h3 {
+.product-info h3 {
   font-size: x-large;
 }
 .shop-content button {
@@ -169,6 +170,7 @@ h3 {
     margin-left: auto;
     margin-right: 100px;
     min-width: 300px;
+    gap: 10px;
   }
   .product-item > img {
     margin-right: 50px;
@@ -177,6 +179,7 @@ h3 {
     justify-self: center;
     margin-left: auto;
     margin-right: auto;
+    gap: 5px;
   }
   .product-content p:nth-child(2) {
     display: unset;

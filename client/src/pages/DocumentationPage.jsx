@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import "../styles/docsPage.css";
 
 export const mockData = [
@@ -12,6 +12,26 @@ export const mockData = [
 ];
 
 function DocumentationPage() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = () => {
+    const results = mockData.filter(item =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) || item.content.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  };
+  
+
+  useEffect(() => {
+    handleSearch();
+  }, []);
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
   return (
     <div className='docsOverview'>
       <div className='header'>
@@ -27,11 +47,16 @@ function DocumentationPage() {
           id="docs-search"
           placeholder="Search"
           className="search-input"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
-        <button type="submit" className="docs-search-button">Search</button>
+        <button type="button" className="docs-search-button" onClick={handleSearch}>
+          Search
+        </button>
       </div>
       <div className="card-container">
-        {mockData.map((item) => (
+        {searchResults.map((item) => (
           <Link key={item.id} to={`/docs/${item.id}`} className="card-link">
             <div className="card">
               <h2 className='card-title'>{item.title}</h2>

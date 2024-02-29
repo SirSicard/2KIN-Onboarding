@@ -12,7 +12,9 @@
 .cart-content h3 {
   text-align: center;
 }
-
+.cart-content h2 {
+  text-align: center;
+}
 .cart-content > button {
   max-width: 400px;
   font-size: x-large;
@@ -27,6 +29,7 @@
   height: 80px;
   border-bottom: 1px solid;
   margin-left: 30px;
+  gap: 5px;
 }
 
 /* Cart products */
@@ -48,13 +51,15 @@
 /*quantity content */
 .quantity-content button {
   width: 30px;
+  height: 30px;
   font-size: larger;
 }
 .quantity-content {
   flex: 0 1 10%;
-  max-width: 100px;
+  max-width: 140px;
   max-height: 20px;
   align-self: center;
+  margin-bottom: 20px;
 }
 /* cart items */
 .cart-items {
@@ -79,9 +84,9 @@
 .cart-items input[type=number] {
   -moz-appearance: textfield;
 }
-.cart-items input {
+.quantity-content > form> input {
   max-width: 30px;
-  height: 32px;
+  height: 30px;
   text-align: center;
 }
 .cart-items > p {
@@ -146,7 +151,7 @@
 
   .quantity-content {
     align-self: auto;
-    min-width: 100px;
+    min-width: 120px;
     max-height: 50px;
   }
 
