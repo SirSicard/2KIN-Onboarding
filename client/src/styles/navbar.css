@@ -51,6 +51,7 @@ nav .nav-login-btn:hover {
     background-color: var(--main-bg-color);
     align-self: center;
     height: 100vh;
+    z-index: 1;
   }
   .dropdown-menu > a {
     border-top: 1px solid;
@@ -85,6 +86,10 @@ nav .nav-login-btn:hover {
     font-size: 30px;
     align-self: center;
   }
+  .mobile-nav-right > a > svg {
+    margin-top: 8px;
+    margin-right: 8px;
+  }
   .nav-right {
     display: none;
     color: red;
@@ -92,8 +97,8 @@ nav .nav-login-btn:hover {
   .mobile-nav-right {
     display: flex;
     width: 150px;
-    justify-content: space-between;
+    justify-content: flex-end;
     height: 40px;
   }
-  
+    
 }

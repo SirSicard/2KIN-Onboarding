@@ -41,7 +41,8 @@ function Navbar({ onLoginClick }) {
           </Link>
         </div>
         <div className="mobile-nav-right">
-          <NavLink to={"/cart"} className={"navbar-cart"}>
+          <NavLink to={"/cart"} className={"navbar-cart"} 
+           onClick={() => handleDropdownMenu()}>
             <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
           </NavLink>
           <button onClick={() => handleDropdownMenu()}>
@@ -61,8 +62,8 @@ function Navbar({ onLoginClick }) {
             <NavLink onClick={() => handleDropdownMenu()} to={"/apps"}>
               APPSTORE
             </NavLink>
-            <NavLink onClick={() => handleDropdownMenu()} to={"/cart"}>
-              CART
+            <NavLink onClick={() => handleDropdownMenu()} to={"/user/add-product"}>
+              ACCOUNT
             </NavLink>
             <NavLink href="#" onClick={onLoginClick}>
               LOGIN
