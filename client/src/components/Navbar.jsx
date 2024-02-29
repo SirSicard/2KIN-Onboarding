@@ -32,17 +32,22 @@ function Navbar({ onLoginClick }) {
           <NavLink to={"/shop"}>SHOP</NavLink>
           <NavLink to="/docs">DOCS</NavLink>
           <NavLink to={"/apps"}>APPSTORE</NavLink>
+          <NavLink to={"/cart"} className={"navbar-cart"}>
+            <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
+          </NavLink>
           <button onClick={handleDashboardClick}>DASHBOARD</button>
           <Link href="#" onClick={onLoginClick}>
             <span className="nav-login-btn">Login</span>
           </Link>
+        </div>
+        <div className="mobile-nav-right">
           <NavLink to={"/cart"} className={"navbar-cart"}>
             <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
           </NavLink>
+          <button onClick={() => handleDropdownMenu()}>
+            <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
+          </button>
         </div>
-        <button onClick={() => handleDropdownMenu()}>
-          <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-        </button>
       </div>
       {activeMenu ? (
         <>

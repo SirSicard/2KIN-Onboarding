@@ -9,15 +9,17 @@ nav > .navbar-top {
   align-items: center;
   position: fixed;
   width: 100%;
-  background-color: var(--main-bg-color) ;
+  background-color: var(--main-bg-color);
   margin-bottom: 60px;
 }
 .navbar-cart {
   font-size: x-large;
 }
-.navbar-top > button {
+
+.mobile-nav-right {
   display: none;
 }
+
 .nav-right a {
   padding: 20px;
   display: inline-block;
@@ -39,55 +41,59 @@ nav .nav-login-btn:hover {
   display: none;
 }
 
-
 @media (max-width: 700px) {
-    .dropdown-menu {
-      top:60px;
-      display: flex;
-      width: 100%;
-      position: fixed;
-      flex-flow: column wrap;
-      background-color: var(--main-bg-color);
-      align-self: center;
-      height: 100vh;
-    }
-    .dropdown-menu > a {
-      border-top: 1px solid;
-      height: 150px;
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-      padding: 40px;
-    }
-    .dropdown-menu > a:last-child {
-      border-bottom: 1px solid;
-    }
-    .navbar-top {
-      display: flex;
-        
-    }
-    /* button for dropdown menu */
-    .navbar-top > button {
-      display: unset;
-      width: 60px;
-      height: 40px;
-      align-items: center;
-      display: flex;
-      background-color: unset;
-      color: var(--button-bg-color)
-    }
-    /* Removes hover effect on button of dropdown menu */
-    .navbar-top > button:hover {
-      background-color: unset;
-    }
-    .navbar-top > button > svg {
-      width: 100px;
-      font-size: 30px;
-      align-self: center;
-    }
-   .nav-right {
-      display: none;
-      color:red;
-    }
-
+  .dropdown-menu {
+    top: 60px;
+    display: flex;
+    width: 100%;
+    position: fixed;
+    flex-flow: column wrap;
+    background-color: var(--main-bg-color);
+    align-self: center;
+    height: 100vh;
+  }
+  .dropdown-menu > a {
+    border-top: 1px solid;
+    height: 150px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+  .dropdown-menu > a:last-child {
+    border-bottom: 1px solid;
+  }
+  .navbar-top {
+    display: flex;
+  }
+  /* button for dropdown menu */
+  .mobile-nav-right > button {
+    display: unset;
+    width: 60px;
+    height: 40px;
+    align-items: center;
+    display: flex;
+    background-color: unset;
+    color: var(--button-bg-color);
+  }
+  /* Removes hover effect on button of dropdown menu */
+  .mobile-nav-right > button:hover {
+    background-color: unset;
+  }
+  .mobile-nav-right > button > svg {
+    width: 100px;
+    font-size: 30px;
+    align-self: center;
+  }
+  .nav-right {
+    display: none;
+    color: red;
+  }
+  .mobile-nav-right {
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+    height: 40px;
+  }
+  
 }
