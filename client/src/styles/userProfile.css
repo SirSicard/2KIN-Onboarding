@@ -26,9 +26,9 @@
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 0;
     gap: 26px;
 
@@ -134,11 +134,11 @@
 }
 
 @media screen and (max-width: 768px){
-    .row{
+    /* .row{
         flex-direction: column;
         gap: 20px;
         margin-top: 90px;
-    }
+    } */
     .billing-form-group-info,
     .billing-form-group-pass{
         max-width: 100%;
