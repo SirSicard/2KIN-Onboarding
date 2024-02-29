@@ -16,6 +16,12 @@ import CartPage from './pages/CartPage.jsx';
 import DocsCategoryPage from './pages/DocsCategoryPage.jsx';
 import RegisterPage from "./pages/RegisterPage.jsx";
 import AppstorePage from './pages/AppstorePage.jsx';
+import UserDashboard from './components/User/UserDashboard.jsx';
+import AddProduct from './pages/dashboard/AddProduct.jsx';
+import ShopHistory from './pages/dashboard/ShopHistory.jsx';
+import UserProfile from './pages/dashboard/UserProfile.jsx';
+import BillingPage from './pages/dashboard/BillingPage.jsx';
+
 import AppDetailsPage from "./pages/AppDetailsPage.jsx";
 
 const router = createBrowserRouter(
@@ -29,8 +35,15 @@ const router = createBrowserRouter(
       <Route path="apps" element={<AppstorePage/>}/>
       <Route path="apps/:id" element={<AppDetailsPage/>}/>
       <Route path="register" element={<RegisterPage />} />
+      <Route path="user" element={<UserDashboard />}>
+        <Route path="add-product" element={<AddProduct />}
+           default={true}
+        />
+        <Route path="shop-history" element={<ShopHistory />} />
+        <Route path="profile" element={<UserProfile />} />
+        <Route path="billing" element={<BillingPage />} />
+      </Route>
     </Route>
-
   )
 );
 
