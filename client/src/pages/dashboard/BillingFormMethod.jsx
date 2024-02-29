@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/billingPage.css';
 
-function BillingFormMethod({ showForm1, setShowForm1 }) {
+function BillingFormMethod({setShowForm1 }) {
   const [paymentOption, setPaymentOption] = useState('credit'); 
 
   const handlePaymentOptionChange = (option) => {

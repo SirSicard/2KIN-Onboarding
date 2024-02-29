@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/billingPage.css';
 
-function BillingFormInfo({ showForm, setShowForm }) {
+function BillingFormInfo({setShowForm }) {
 
   return (
     <form className="billing-form">

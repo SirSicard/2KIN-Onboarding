@@ -32,7 +32,6 @@ export default function UserDashboard() {
         <div className="dashboard-content">
           <Outlet />
         </div>
-      {/* </div> */}
     </div>
   );
 }

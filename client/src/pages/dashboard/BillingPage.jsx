@@ -23,7 +23,7 @@ export default function BillingPage() {
             <h3>Payment information</h3>
           
           {showForm ? (
-            <BillingFormInfo showForm={showForm} setShowForm={setShowForm} />
+            <BillingFormInfo setShowForm={setShowForm} />
           ) : (
             <div className='group-1'>
               <div className="btn-1">
@@ -46,7 +46,7 @@ export default function BillingPage() {
           <h3>Payment method</h3>
             {showForm2 ? (
             <BillingFormMethod
-              showForm1={showForm2} setShowForm1={setShowForm2} />
+              setShowForm1={setShowForm2} />
           ) : (
              <div className='group-1'>
             <div className="btn-1">

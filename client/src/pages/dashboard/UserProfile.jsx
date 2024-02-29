@@ -16,6 +16,8 @@ export default function UserProfile() {
     <div>
       <div className="container-lg">
         <div className="row">
+
+          {/* Add profile image 👇 */}
           {/* <div className="col-lg-3"> */}
           {/* <div className="card-body">
               <div>
