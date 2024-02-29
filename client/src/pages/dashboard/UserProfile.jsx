@@ -16,7 +16,6 @@ export default function UserProfile() {
     <div>
       <div className="container-lg">
         <div className="row">
-
           {/* Add profile image 👇 */}
           {/* <div className="col-lg-3"> */}
           {/* <div className="card-body">
@@ -51,11 +50,11 @@ export default function UserProfile() {
               <div className="billing-form-group-1">
                 <div className="billing-form-group">
                   <label htmlFor="firstName">First Name</label>
-                  <input type="text" id="name" name="firstName" required />
+                  <input type="text" id="firstName" name="firstName" required />
                 </div>
                 <div className="billing-form-group">
                   <label htmlFor="lastName">Last Name</label>
-                  <input type="text" id="name" name="lastName" required />
+                  <input type="text" id="LastName" name="lastName" required />
                 </div>
               </div>
               <div className="billing-form-group">
@@ -82,9 +81,9 @@ export default function UserProfile() {
               <div className="billing-form-group">
                 <label htmlFor="oldPassword">Old Password</label>
                 <input
-                  type="current-password"
+                  type="password"
                   id="oldPassword"
-                  name="oldPassword"
+                  name="password"
                   required
                 />
               </div>
@@ -92,7 +91,7 @@ export default function UserProfile() {
                 <label htmlFor="newPassword">New Password</label>
                 <input
                   type="password"
-                  id="password"
+                  id="new-password"
                   name="newPassword"
                   required
                 />
@@ -101,7 +100,7 @@ export default function UserProfile() {
                 <label htmlFor="newPassword">Repeat Password</label>
                 <input
                   type="password"
-                  id="password"
+                  id="repeat-password"
                   name="newPassword"
                   required
                 />
