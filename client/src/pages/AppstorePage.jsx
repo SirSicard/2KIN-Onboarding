@@ -96,45 +96,75 @@ export const mockApps = [
 ];
 
 function AppstorePage() {
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredApps, setFilteredApps] = useState(mockApps); // Start with all apps displayed
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
+  const handleSearchChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  const handleSearchButtonClick = () => {
+    const trimmedSearchInput = searchInput.trim();
+    setSearchPerformed(trimmedSearchInput !== ""); // Set to true if search input is not empty
+
+    // Update filteredApps based on the search input when the button is clicked
+    setFilteredApps(
+      trimmedSearchInput === "" ? mockApps : // If no search input, show all apps
+      mockApps.filter((app) =>
+        app.title.toLowerCase().includes(trimmedSearchInput.toLowerCase())
+      )
+    );
+  };
 
   return (
     <>
       <div id="appstore-container">
-      <div className="search-container">
+        <div className="search-container">
           <input
             type="search"
             id="appstore-search"
             placeholder="Enter your search query"
             className="search-input"
+            value={searchInput}
+            onChange={handleSearchChange}
           />
-          <button type="submit" className="appstore-search-button">Search</button>
-          </div>
-        <h1 className="appstore-titles">Featured Apps</h1>
-        <div id="featured-apps-container">
-          {mockApps
-            .filter((app) => app.isFeatured)
-            .map((app) => (
-              <Link key={app.id} to={`/apps/${app.id}`}>
-              <div
-                key={`featured-app-${app.id}`}
-                className="featured-apps-card"
-              >
-                <img src={app.imageUrl} alt={`App ${app.id}`} />
-                <button className="download-button">Download</button>
-              </div>
-              </Link>
-            ))}
+          <button
+            type="button" // Use type="button" to prevent form submission
+            className="appstore-search-button"
+            onClick={handleSearchButtonClick}
+          >
+            Search
+          </button>
         </div>
+
+        {/* Render Featured Apps only if search is not performed or search input is not empty */}
+        {!searchPerformed && (
+          <>
+            <h1 className="appstore-titles">Featured Apps</h1>
+            <div id="featured-apps-container">
+              {mockApps
+                .filter((app) => app.isFeatured)
+                .map((app) => (
+                  <Link key={app.id} to={`/apps/${app.id}`}>
+                    <div key={`featured-app-${app.id}`} className="featured-apps-card">
+                      <img src={app.imageUrl} alt={`App ${app.id}`} />
+                      <button className="download-button">Download</button>
+                    </div>
+                  </Link>
+                ))}
+            </div>
+          </>
+        )}
 
         <h1 className="appstore-titles">Browse apps</h1>
         <div id="browse-apps-container">
-          {mockApps.map((app) => (
+          {filteredApps.map((app) => (
             <Link key={app.id} to={`/apps/${app.id}`}>
-            <div key={`browse-app-${app.id}`} className="browse-apps-card">
-              <img src={app.imageUrl} alt={`App ${app.id}`} />
-              <button className="download-button">Download</button>
-            </div>
+              <div key={`browse-app-${app.id}`} className="browse-apps-card">
+                <img src={app.imageUrl} alt={`App ${app.id}`} />
+                <button className="download-button">Download</button>
+              </div>
             </Link>
           ))}
         </div>

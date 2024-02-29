@@ -124,6 +124,8 @@
   position: absolute;
 }
 
+
+
 @media (max-width: 768px) {
   #appstore-search {
     width: 100%;
