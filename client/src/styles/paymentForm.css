@@ -77,3 +77,13 @@
   display: flex;
   gap: 8px;
 }
+
+@media screen and (min-width: 768px) {
+  .payment-details {
+    padding: 32px;
+  }
+
+  .payment-details h2 {
+    margin: 0 0 32px;
+  }
+}
