@@ -7,7 +7,7 @@ function OrderOverview({ cartItems }) {
       <h2>Order Overview</h2>
       {cartItems.map((item) => (
         <div key={item.id} className="product-item">
-          <div className="product-details">
+          <div className="product">
             <img src={item.image} alt={item.name} />
             <div>
               <h3>{item.name}</h3>

@@ -62,6 +62,7 @@
 
 .payment-details .form-row {
   display: flex;
+  flex-direction: row;
 }
 
 .payment-details .form-row input {
