@@ -5,41 +5,59 @@ import ShopImages from "../components/ShopImages";
 import ShopProductItem from "../components/ShopProductItem";
 import MainProductItem from "../components/MainProductItem";
 import GlobalContext from "../GlobalContext";
+import { useNavigate } from "react-router-dom";
 export default function ShopPage() {
-  const {cart, setCart} = useContext(GlobalContext);
+  const navigate = useNavigate();
+  const { setCart } = useContext(GlobalContext);
+
   const clonedProduct = structuredClone(product);
   const [products, setProducts] = useState(clonedProduct);
-  const mainProduct = products[0];
+  const findMainProductIndex = products.findIndex((item) =>
+    item.name.includes("2KIN")
+  );
+  const mainProduct = products[findMainProductIndex];
+  /*Start the inputs state with mainProduct */
   const [inputs, setInputs] = useState([mainProduct]);
-  console.log(inputs)
-  function addItemsToCart(){
-    setCart(inputs)
+  console.log(inputs);
+
+  function addItemsToCart() {
+    setCart(inputs);
+    navigate("/cart");
   }
 
   const totalPrice = inputs.reduce((sum, item) => {
-    return sum += (item.price * item.quantity);
-  }, 0 );
+    return (sum += item.price * item.quantity);
+  }, 0);
+
   return (
     <div className={"shop-content"}>
       <ShopImages />
       <div className="product-content">
         <MainProductItem
-        inputs={inputs} setInputs={setInputs}
-         mainProduct={mainProduct}
-         />
+          inputs={inputs}
+          setInputs={setInputs}
+          mainProduct={mainProduct}
+        />
         {/* Maps out all products except for the "main product" */}
         {products
           .filter((item) => !item.name.includes("2KIN"))
           .map((item) => {
-            return <ShopProductItem 
-            inputs={inputs} setInputs={setInputs}
-            productItem={item} key={item.id} />;
+            return (
+              <ShopProductItem
+                inputs={inputs}
+                setInputs={setInputs}
+                productItem={item}
+                key={item.id}
+              />
+            );
           })}
       </div>
       <div className="product-info">
         <h3>Total Price: {totalPrice} $</h3>
 
-        <button type="submit" onClick={() => addItemsToCart()}>Add to cart</button>
+        <button type="submit" onClick={() => addItemsToCart()}>
+          Add to cart
+        </button>
 
         <h4>Product info</h4>
 

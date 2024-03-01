@@ -2,21 +2,21 @@
     {
     "id": 1,
     "name": "2KIN product",
-    "img": "",
+    "product-image": "https://via.placeholder.com/600x425",
     "quantity": 1,
     "price": 20
 },
 {
     "id": 2,
     "name": "Extra 1",
-    "img": "",
+    "product-image": "https://via.placeholder.com/600x425",
     "quantity": 1,
     "price": 10
 },
 {
     "id": 3,
     "name": "Extra 2",
-    "img": "",
+    "product-image": "https://via.placeholder.com/600x425",
     "quantity": 1,
     "price": 10
 }
