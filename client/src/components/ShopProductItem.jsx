@@ -5,6 +5,11 @@ export default function ShopProductItem({ productItem, inputs, setInputs }) {
   const { name, price } = productItem;
   const ref = createRef();
   console.log(inputs);
+  /**
+   * Handles checked items 
+   * if you have it checked it will add the product to inputs array
+   * if you uncheck the item it remove the product from the array
+   */
   function handleCheckedItem() {
     if (ref.current.checked) {
       setInputs((values) => [...values, productItem]);
@@ -17,7 +22,7 @@ export default function ShopProductItem({ productItem, inputs, setInputs }) {
 
   return (
     <div className="product-item">
-      <img src="https://via.placeholder.com/600x425" alt="img" />
+      <img src={productItem["product-image"]} alt="img" />
       <span>{name}&nbsp;&nbsp;&nbsp;&nbsp;</span>{" "}
       <input
         ref={ref}
@@ -36,6 +41,7 @@ ShopProductItem.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    "product-image": PropTypes.string.isRequired
   }),
   inputs: PropTypes.array.isRequired,
   setInputs: PropTypes.func.isRequired,

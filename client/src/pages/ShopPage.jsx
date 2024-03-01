@@ -19,7 +19,7 @@ export default function ShopPage() {
   /*Start the inputs state with mainProduct */
   const [inputs, setInputs] = useState([mainProduct]);
   console.log(inputs);
-
+  /*updates the cart with the selected items*/
   function addItemsToCart() {
     setCart(inputs);
     navigate("/cart");

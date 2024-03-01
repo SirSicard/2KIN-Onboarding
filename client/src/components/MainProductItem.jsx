@@ -11,6 +11,9 @@ export default function MainProductItem({ mainProduct, inputs, setInputs }) {
    */
   function handleInputChange(event) {
     const { value } = event.target;
+    /*This specific condition with preventDefault() i got from stackoverflow:
+     https://stackoverflow.com/questions/67626486/how-to-restrict-user-input-from-0-to-99-in-javascript
+    */
     if (value > 99 || value <= 0) {
       event.preventDefault();
       return;
