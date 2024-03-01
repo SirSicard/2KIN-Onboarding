@@ -41,7 +41,7 @@ function Navbar({ onLoginClick }) {
           </Link>
         </div>
         <div className="mobile-nav-right">
-          <NavLink to="/cart" className="navbar-icon" onClick={handleDropdownMenu}>
+          <NavLink to="/cart" className="navbar-icon" onClick={()=> setActiveMenu(false)}>
             <FontAwesomeIcon icon={faCartShopping} />
           </NavLink>
           <button onClick={handleDropdownMenu}>
