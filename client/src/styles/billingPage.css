@@ -34,7 +34,6 @@ gap: 20px;
 .payment {
   position: relative;
   width: 100%;
-  min-width: 800px;
   max-height: fit-content;
   display: flex;
   flex-direction: column;
