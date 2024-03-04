@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "../styles/shop.css";
 import product from "../utils/products.json";
 import ShopImages from "../components/ShopImages";
@@ -8,7 +8,7 @@ import GlobalContext from "../GlobalContext";
 import { useNavigate } from "react-router-dom";
 export default function ShopPage() {
   const navigate = useNavigate();
-  const { setCart } = useContext(GlobalContext);
+  const { setCart, cart } = useContext(GlobalContext);
 
   const clonedProduct = structuredClone(product);
   const [products, setProducts] = useState(clonedProduct);
@@ -19,7 +19,15 @@ export default function ShopPage() {
   /*Start the inputs state with mainProduct */
   const [inputs, setInputs] = useState([mainProduct]);
   console.log(inputs);
+
+  useEffect(() => {
+    if(cart.length > 1) {
+      setInputs(cart);
+    }
+  }, [])
+
   /*updates the cart with the selected items*/
+
   function addItemsToCart() {
     setCart(inputs);
     navigate("/cart");
