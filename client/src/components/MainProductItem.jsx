@@ -1,35 +1,18 @@
 import { PropTypes } from "prop-types";
-import { createRef, useContext, useEffect } from "react";
+import { createRef, useContext } from "react";
 import GlobalContext from "../GlobalContext";
 export default function MainProductItem({ mainProduct, inputs, setInputs }) {
   const { cart } = useContext(GlobalContext);
-  const inputRef = createRef();
   /*does not have any functionallity yet*/
   function handleSubmit(event) {
     event.preventDefault();
     console.log(inputs);
   }
+
   /**
    * Function for handling the quantity of the main product
    * depending on user selected input.
    */
-
-    useEffect(() => {
-      const cartItem = cart.findIndex((item) => item.id === mainProduct.id);
-      if(cartItem !== -1 && !inputRef.current.focus()) {
-        
-        console.log(cartItem)
-        const arr = [...inputs];
-        const findMainIndex = arr.findIndex((item) => item.id === mainProduct.id);
-        console.log(arr[findMainIndex])
-        arr[findMainIndex] = {
-          ...arr[findMainIndex],
-          ["quantity"]: cart[cartItem].quantity + 1,
-        };
-        setInputs(arr);
-      }
-    }, [])
-
   function handleInputChange(event) {
     const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
 
@@ -47,12 +30,12 @@ export default function MainProductItem({ mainProduct, inputs, setInputs }) {
     /**
      * Condition that if product already is in cart
      * adds up the quantity depending on use input plus
-     * quantity in cart. 
+     * quantity in cart.
      */
     if (findCartItem !== -1) {
       arr[findIndex] = {
         ...arr[findIndex],
-        ["quantity"]: parseInt((value)) + cart[findCartItem].quantity,
+        ["quantity"]: parseInt(value) + cart[findCartItem].quantity,
       };
       setInputs(arr);
     } else {
@@ -70,7 +53,6 @@ export default function MainProductItem({ mainProduct, inputs, setInputs }) {
           <label>
             <span>Quantity: &nbsp; &nbsp;</span>
             <input
-             ref={inputRef}
               type="number"
               onChange={handleInputChange}
               min={1}
@@ -95,6 +77,7 @@ MainProductItem.propTypes = {
     price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired,
   }),
+  activeMain: PropTypes.string,
   inputs: PropTypes.array.isRequired,
   setInputs: PropTypes.func.isRequired,
 };

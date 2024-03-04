@@ -9,22 +9,23 @@ import { useNavigate } from "react-router-dom";
 export default function ShopPage() {
   const navigate = useNavigate();
   const { setCart, cart } = useContext(GlobalContext);
-
   const clonedProduct = structuredClone(product);
   const [products, setProducts] = useState(clonedProduct);
+
   const findMainProductIndex = products.findIndex((item) =>
     item.name.includes("2KIN")
   );
+
   const mainProduct = products[findMainProductIndex];
   /*Start the inputs state with mainProduct */
   const [inputs, setInputs] = useState([mainProduct]);
   console.log(inputs);
 
   useEffect(() => {
-    if(cart.length > 1) {
+    if (cart.length >= 1) {
       setInputs(cart);
     }
-  }, [])
+  }, []);
 
   /*updates the cart with the selected items*/
 
