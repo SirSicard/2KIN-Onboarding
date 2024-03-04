@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import "../styles/docsPage.css";
 
 export const mockData = [
@@ -21,7 +23,11 @@ function DocumentationPage() {
     );
     setSearchResults(results);
   };
-  
+
+  const handleReset = () => {
+    setSearchTerm('');
+    setSearchResults(mockData);
+  };
 
   useEffect(() => {
     handleSearch();
@@ -32,6 +38,7 @@ function DocumentationPage() {
       handleSearch();
     }
   };
+
   return (
     <div className='docsOverview'>
       <div className='header'>
@@ -42,15 +49,20 @@ function DocumentationPage() {
         <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png" alt="Logo" className="docs-logo" />
       </div>
       <div className="docs-search-container">
-        <input
-          type="text"
-          id="docs-search"
-          placeholder="Search"
-          className="search-input"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyPress={handleKeyPress}
-        />
+        <div className="search-input-container">
+          <button type="button" className="docs-reset-button" onClick={handleReset}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <input
+            type="text"
+            id="docs-search"
+            placeholder="Search"
+            className="search-input"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
+        </div>
         <button type="button" className="docs-search-button" onClick={handleSearch}>
           Search
         </button>
