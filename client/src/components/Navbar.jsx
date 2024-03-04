@@ -1,11 +1,14 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faCartShopping, faUserNinja } from "@fortawesome/free-solid-svg-icons";
+import GlobalContext from "../GlobalContext";
 
 function Navbar({ onLoginClick }) {
+  const {loggedIn} = useContext(GlobalContext);
+
   const navigate = useNavigate();
 
   const handleDashboardClick = () => {
@@ -33,12 +36,15 @@ function Navbar({ onLoginClick }) {
           <NavLink to="/cart" className="navbar-icon">
             <FontAwesomeIcon icon={faCartShopping} />
           </NavLink>
-          <Link to="/user/add-product" className="navbar-icon">
-          <FontAwesomeIcon icon={faUserNinja} onClick={handleDashboardClick}/>
-          </Link>
-          <Link href="#" onClick={onLoginClick}>
+          {loggedIn ? 
+            <Link to="/user/add-product" className="navbar-icon">
+              <FontAwesomeIcon icon={faUserNinja} onClick={handleDashboardClick}/>
+            </Link> :
+            <Link href="#" onClick={onLoginClick}>
             <span className="nav-login-btn">Login</span>
           </Link>
+          }
+          
         </div>
         <div className="mobile-nav-right">
           <NavLink to="/cart" className="navbar-icon" onClick={()=> setActiveMenu(false)}>
@@ -60,12 +66,15 @@ function Navbar({ onLoginClick }) {
           <NavLink onClick={handleDropdownMenu} to="/apps">
             APPSTORE
           </NavLink>
+          {loggedIn ? 
           <NavLink onClick={handleDropdownMenu} to="/user/add-product">
             ACCOUNT
           </NavLink>
+          :
           <NavLink href="#" onClick={onLoginClick}>
             LOGIN
           </NavLink>
+          }
         </div>
       )}
     </nav>

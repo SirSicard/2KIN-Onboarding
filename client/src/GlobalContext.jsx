@@ -7,14 +7,15 @@ const GlobalContext = createContext(null);
 
 export function GlobalProvider({children}) {
     const [cart, setCart] = useState([]);
-
+    const [loggedIn, setLoggedIn] = useState(false);
   console.log(cart);
 
     return (
         <GlobalContext.Provider value={{
             cart,
-            setCart
-
+            setCart,
+            loggedIn,
+            setLoggedIn
         }}
         >
             {children}

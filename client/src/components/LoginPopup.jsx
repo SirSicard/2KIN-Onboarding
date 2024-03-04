@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/loginPopup.css";
 import PropTypes from "prop-types";
+import GlobalContext from "../GlobalContext";
 
 function LoginPopup({ onClose }) {
+  const {setLoggedIn} = useContext(GlobalContext);
   const [formData, setFormData] = useState({ username: "", password: "" });
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -16,7 +17,7 @@ function LoginPopup({ onClose }) {
     event.preventDefault();
 
     console.log("Logging in with:", formData);
-
+    setLoggedIn(true);
     onClose();
   };
 
