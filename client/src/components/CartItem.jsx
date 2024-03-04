@@ -55,8 +55,6 @@ export default function CartItem({ cart, cartItem, setCart }) {
     arr[findIndex] = { ...arr[findIndex], ["quantity"]: inputs.quantity };
     setCart(arr);
   }
-
-  console.log(cartItem.quantity);
   const total = cartItem.price * cartItem.quantity;
   return (
     <div className="cart-products">
