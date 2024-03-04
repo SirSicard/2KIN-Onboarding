@@ -21,6 +21,13 @@ export default function ShopPage() {
   const [inputs, setInputs] = useState([mainProduct]);
   console.log(inputs);
 
+  /**
+   * Set the inputs state to the cart if 
+   * cart is not empty. 
+   * This is for when someone goes back to shop and either
+   * wants to add more of a product or extra
+   * products without resetting the cart when trying to add to cart
+   */
   useEffect(() => {
     if (cart.length >= 1) {
       setInputs(cart);
