@@ -14,8 +14,6 @@ export default function CartPage() {
   const subtotal = cart?.reduce((sum, item) => {
     return sum + item.price * item.quantity;
   }, 0);
-
-  console.log(subtotal);
   return (
     <div className="cart-content">
       <h2>Your cart</h2>
