@@ -71,7 +71,10 @@ function Navbar({ onLoginClick }) {
             ACCOUNT
           </NavLink>
           :
-          <NavLink href="#" onClick={onLoginClick}>
+          <NavLink href="#" onClick={(e) => {
+            onLoginClick(e)
+            setActiveMenu(false);
+          }}>
             LOGIN
           </NavLink>
           }
