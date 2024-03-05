@@ -112,6 +112,10 @@
   word-spacing: 2px;
 }
 
+.cart-content > button:last-child{
+    margin-bottom: 30px;
+}
+
 @media (max-width: 800px) {
   .cart-context {
     width: 350px;
