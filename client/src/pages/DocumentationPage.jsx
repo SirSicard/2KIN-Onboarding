@@ -41,10 +41,10 @@ function DocumentationPage() {
 
   return (
     <div className='docsOverview'>
-      <div className='header'>
-        <div className='header-content'>
+      <div className='docs-header'>
+        <div className='docs-header-content'>
           <h3 className='docs-title'>2Kin Documentation</h3>
-          <p className='subtitle'>Type something interesting here</p>
+          <p className='docs-subtitle'>Type something interesting here</p>
         </div>
         <img src="https://cryptologos.cc/logos/uniswap-uni-logo.png" alt="Logo" className="docs-logo" />
       </div>
