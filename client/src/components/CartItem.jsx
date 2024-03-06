@@ -69,6 +69,7 @@ export default function CartItem({ cart, cartItem, setCart }) {
         </div>
         <p>{cartItem.price} $</p>
         <div className="quantity-content">
+        <p>{total} $</p>
           <button onClick={decrementQuantity} value={cartItem.id}>
             -
           </button>
