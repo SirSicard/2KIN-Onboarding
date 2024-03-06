@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.header {
+.docs-header {
   display: flex;
   justify-content: center;
   gap: 100px;
@@ -11,7 +11,7 @@
   background-color: #E0E0E0;
 }
 
-.header-content {
+.docs-header-content {
   text-align: left;
 }
 
@@ -20,7 +20,7 @@
   margin-bottom: 10px;
 }
 
-.subtitle {
+.docs-subtitle {
   font-size: 16px;
 }
 
@@ -118,17 +118,26 @@
     width: 90%;
   }
 
-  @media (max-width: 630px) {
-    .header {
+  @media (max-width: 645px) {
+    .docs-header {
       flex-direction: column-reverse;
+      gap: 0; 
     }
 
-    .header-content {
+    .docs-header-content {
       text-align: center;
     }
 
     .docs-logo {
       margin-top: 20px;
+    }
+    .docs-title {
+      margin: 20px;
+    }
+  }
+  @media (max-width: 350px) {
+    .docs-title {
+      font-size: 30px;
     }
   }
 }
