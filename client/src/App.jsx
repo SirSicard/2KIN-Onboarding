@@ -16,7 +16,7 @@ function App() {
 
   return (
     <>
-    <GlobalProvider>
+    
       <header className={lightmode}>
         <Navbar onLoginClick={(event) => toggleLogin(event)} />
       </header>
@@ -25,7 +25,7 @@ function App() {
       </main>
       <Footer />
       {isLoginOpen && <LoginPopup onClose={() => setIsLoginOpen(false)} />}
-      </GlobalProvider>
+      
     </>
   );
 }

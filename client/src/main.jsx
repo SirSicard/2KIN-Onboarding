@@ -24,6 +24,7 @@ import BillingPage from "./pages/dashboard/BillingPage.jsx";
 
 import AppDetailsPage from "./pages/AppDetailsPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
+import { GlobalProvider } from './GlobalContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -49,6 +50,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+  <GlobalProvider>
     <RouterProvider router={router} />
+    </GlobalProvider>
   </React.StrictMode>
 );
