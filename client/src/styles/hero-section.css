@@ -104,3 +104,21 @@
         font-size: 16px;
     }
 }
+
+    @media (max-height: 700px) {
+        .hero-title {
+            padding-top: 4vh;
+            font-size: 60px;
+        }
+        
+        .hero-description {
+            width: 90%;
+            padding-top: 22vh;
+        }
+        
+        .hero-buy button {
+            padding: 12px 40px;
+            font-size: 16px;
+        }
+    
+}
