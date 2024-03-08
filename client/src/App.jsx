@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import lightmode from "./styles/lightmode.module.css";
 import { useState } from "react";
 import LoginPopup from "./components/LoginPopup";
-import { GlobalProvider } from './GlobalContext';
+import { GlobalProvider } from "./GlobalContext";
 
 function App() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -17,15 +17,15 @@ function App() {
   return (
     <>
       <GlobalProvider>
-      <header className={lightmode}>
-        <Navbar onLoginClick={(event) => toggleLogin(event)} />
-      </header>
-      <main className={lightmode}>
-        <Outlet context={toggleLogin} />
-      </main>
-      <Footer />
-      {isLoginOpen && <LoginPopup onClose={() => setIsLoginOpen(false)} />}
-      </GlobalProvider>  
+        <header className={lightmode}>
+          <Navbar onLoginClick={(event) => toggleLogin(event)} />
+        </header>
+        <main className={lightmode}>
+          <Outlet context={toggleLogin} />
+        </main>
+        <Footer />
+        {isLoginOpen && <LoginPopup onClose={() => setIsLoginOpen(false)} />}
+      </GlobalProvider>
     </>
   );
 }

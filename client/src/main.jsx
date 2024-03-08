@@ -24,7 +24,6 @@ import BillingPage from "./pages/dashboard/BillingPage.jsx";
 
 import AppDetailsPage from "./pages/AppDetailsPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
-import { GlobalProvider } from './GlobalContext';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
