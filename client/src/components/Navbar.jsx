@@ -46,12 +46,12 @@ function Navbar({ onLoginClick }) {
           <NavLink to="/cart" className="navbar-icon">
             <FontAwesomeIcon icon={faCartShopping} />
           </NavLink>
-          <Link to="/user/add-product" className="navbar-icon">
+          <NavLink to="/user/add-product" className="navbar-icon">
             <FontAwesomeIcon
               icon={faUserNinja}
               onClick={handleDashboardClick}
             />
-          </Link>
+          </NavLink>
           <Link href="#" onClick={onLoginClick}>
             <span className="nav-login-btn">Login</span>
           </Link>
