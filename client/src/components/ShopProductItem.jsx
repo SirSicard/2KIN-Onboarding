@@ -6,7 +6,6 @@ export default function ShopProductItem({ productItem, inputs, setInputs }) {
   const {cart} = useContext(GlobalContext)
   const { name, price } = productItem;
   const ref = createRef();
-  console.log(inputs);
   /**
    * Handles checked items 
    * if you have it checked it will add the product to inputs array
@@ -26,7 +25,6 @@ export default function ShopProductItem({ productItem, inputs, setInputs }) {
          */
         if(findCartItem !== -1 && inputs.length > 1){
           const arr = [...inputs];
-          console.log(arr[findCartItem])
           arr[findCartItem] = {...arr[findCartItem], ["quantity"]: (cart[findCartItem].quantity + 1)}
           setInputs(arr);
         } else {

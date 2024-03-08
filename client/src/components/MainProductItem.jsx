@@ -1,14 +1,12 @@
 import { PropTypes } from "prop-types";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect } from "react";
 import GlobalContext from "../GlobalContext";
-import { useCallback } from "react";
 export default function MainProductItem({triggerChildEffect, mainProduct, inputs, setInputs }) {
   const { cart } = useContext(GlobalContext);
 
   /*does not have any functionallity yet*/
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(inputs);
   }
 
 
@@ -22,7 +20,6 @@ export default function MainProductItem({triggerChildEffect, mainProduct, inputs
       const arr = [...inputs];
       arr[findCartItem] = {...arr[findCartItem], ["quantity"]:
        1 + cart[findCartItem].quantity }
-       console.log(inputs)
       setInputs(arr)
     }
 
