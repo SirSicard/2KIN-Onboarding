@@ -1,13 +1,32 @@
 import { PropTypes } from "prop-types";
-import { createRef, useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import GlobalContext from "../GlobalContext";
-export default function MainProductItem({ mainProduct, inputs, setInputs }) {
+import { useCallback } from "react";
+export default function MainProductItem({triggerChildEffect, mainProduct, inputs, setInputs }) {
   const { cart } = useContext(GlobalContext);
+
   /*does not have any functionallity yet*/
   function handleSubmit(event) {
     event.preventDefault();
     console.log(inputs);
   }
+
+
+
+  useEffect(() => {
+
+    
+
+    if(cart.length >= 1){
+      const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
+      const arr = [...inputs];
+      arr[findCartItem] = {...arr[findCartItem], ["quantity"]:
+       1 + cart[findCartItem].quantity }
+       console.log(inputs)
+      setInputs(arr)
+    }
+
+  }, [triggerChildEffect])
 
   /**
    * Function for handling the quantity of the main product
@@ -80,4 +99,5 @@ MainProductItem.propTypes = {
   activeMain: PropTypes.string,
   inputs: PropTypes.array.isRequired,
   setInputs: PropTypes.func.isRequired,
+  triggerChildEffect: PropTypes.bool.isRequired
 };
