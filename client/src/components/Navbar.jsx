@@ -3,7 +3,11 @@ import "../styles/navbar.css";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCartShopping, faUserNinja } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faCartShopping,
+  faUserNinja,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Navbar({ onLoginClick }) {
   const navigate = useNavigate();
@@ -18,7 +22,8 @@ function Navbar({ onLoginClick }) {
     setActiveMenu(!activeMenu);
   }
 
-  const handleActiveClassName = ({isActive}) => "" + (isActive ? "active" : "");
+  const handleActiveClassName = ({ isActive }) =>
+    "" + (isActive ? "active" : "");
 
   return (
     <nav>
@@ -29,11 +34,7 @@ function Navbar({ onLoginClick }) {
           </h1>
         </Link>
         <div className="nav-right">
-          <NavLink
-            to="/shop"
-            className={handleActiveClassName
-            }
-          >
+          <NavLink to="/shop" className={handleActiveClassName}>
             SHOP
           </NavLink>
           <NavLink to="/docs" className={handleActiveClassName}>
@@ -46,7 +47,10 @@ function Navbar({ onLoginClick }) {
             <FontAwesomeIcon icon={faCartShopping} />
           </NavLink>
           <Link to="/user/add-product" className="navbar-icon">
-          <FontAwesomeIcon icon={faUserNinja} onClick={handleDashboardClick}/>
+            <FontAwesomeIcon
+              icon={faUserNinja}
+              onClick={handleDashboardClick}
+            />
           </Link>
           <Link href="#" onClick={onLoginClick}>
             <span className="nav-login-btn">Login</span>
