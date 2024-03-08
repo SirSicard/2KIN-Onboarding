@@ -10,7 +10,7 @@
     max-width: 600px;
     text-align: center;
     margin: 0 auto;
-    padding-top: 55vh;
+    padding-top: 52vh;
 }
 
 .hero-buy {
@@ -45,7 +45,7 @@
 
     .hero-description {
         width: 90%;
-        padding-top: 50vh;
+        padding-top: 45vh;
     }
 
     .hero-buy button {
@@ -62,7 +62,7 @@
 
     .hero-description {
         width: 90%;
-        padding-top: 50vh;
+        padding-top: 45vh;
     }
 
     .hero-buy button {
@@ -79,11 +79,46 @@
 
     .hero-description {
         width: 90%;
-        padding-top: 45vh;
+        padding-top: 42vh;
     }
 
     .hero-buy button {
         padding: 12px 40px;
         font-size: 16px;
     }
+}
+
+@media (max-width: 500px) {
+    .hero-title {
+        padding-top: 14vh;
+        font-size: 60px;
+    }
+    
+    .hero-description {
+        width: 90%;
+        padding-top: 32vh;
+    }
+    
+    .hero-buy button {
+        padding: 12px 40px;
+        font-size: 16px;
+    }
+}
+
+    @media (max-height: 700px) {
+        .hero-title {
+            padding-top: 4vh;
+            font-size: 60px;
+        }
+        
+        .hero-description {
+            width: 90%;
+            padding-top: 22vh;
+        }
+        
+        .hero-buy button {
+            padding: 12px 40px;
+            font-size: 16px;
+        }
+    
 }
