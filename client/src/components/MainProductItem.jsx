@@ -14,9 +14,9 @@ export default function MainProductItem({triggerChildEffect, mainProduct, inputs
   useEffect(() => {
 
     
-
-    if(cart.length >= 1){
-      const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
+const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
+    if(cart.length >= 1 && findCartItem !== -1){
+    
       const arr = [...inputs];
       arr[findCartItem] = {...arr[findCartItem], ["quantity"]:
        1 + cart[findCartItem].quantity }
@@ -54,10 +54,13 @@ export default function MainProductItem({triggerChildEffect, mainProduct, inputs
         ["quantity"]: parseInt(value) + cart[findCartItem].quantity,
       };
       setInputs(arr);
-    } else {
+    } else if(findIndex !== -1) {
       arr[findIndex] = { ...arr[findIndex], ["quantity"]: parseInt(value) };
       setInputs(arr);
+    } else {
+      setInputs((values) => [...values, mainProduct]);
     }
+
   }
 
   return (
