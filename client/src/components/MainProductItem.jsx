@@ -54,6 +54,12 @@ const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
         ["quantity"]: parseInt(value) + cart[findCartItem].quantity,
       };
       setInputs(arr);
+      /**
+       * Condition to check if main product exist and increase 
+       * Product quantity depending on user input
+       * If it does not exist it will add the main product to 
+       * array state
+       */
     } else if(findIndex !== -1) {
       arr[findIndex] = { ...arr[findIndex], ["quantity"]: parseInt(value) };
       setInputs(arr);
