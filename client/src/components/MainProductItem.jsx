@@ -1,7 +1,12 @@
 import { PropTypes } from "prop-types";
 import { useContext, useEffect } from "react";
 import GlobalContext from "../GlobalContext";
-export default function MainProductItem({triggerChildEffect, mainProduct, inputs, setInputs }) {
+export default function MainProductItem({
+  triggerChildEffect,
+  mainProduct,
+  inputs,
+  setInputs,
+}) {
   const { cart } = useContext(GlobalContext);
 
   /*does not have any functionallity yet*/
@@ -9,21 +14,17 @@ export default function MainProductItem({triggerChildEffect, mainProduct, inputs
     event.preventDefault();
   }
 
-
-
   useEffect(() => {
-
-    
-const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
-    if(cart.length >= 1 && findCartItem !== -1){
-    
+    const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
+    if (cart.length >= 1 && findCartItem !== -1) {
       const arr = [...inputs];
-      arr[findCartItem] = {...arr[findCartItem], ["quantity"]:
-       1 + cart[findCartItem].quantity }
-      setInputs(arr)
+      arr[findCartItem] = {
+        ...arr[findCartItem],
+        ["quantity"]: 1 + cart[findCartItem].quantity,
+      };
+      setInputs(arr);
     }
-
-  }, [triggerChildEffect])
+  }, [triggerChildEffect]);
 
   /**
    * Function for handling the quantity of the main product
@@ -55,18 +56,17 @@ const findCartItem = cart.findIndex((item) => item.id === mainProduct.id);
       };
       setInputs(arr);
       /**
-       * Condition to check if main product exist and increase 
+       * Condition to check if main product exist and increase
        * Product quantity depending on user input
-       * If it does not exist it will add the main product to 
+       * If it does not exist it will add the main product to
        * array state
        */
-    } else if(findIndex !== -1) {
+    } else if (findIndex !== -1) {
       arr[findIndex] = { ...arr[findIndex], ["quantity"]: parseInt(value) };
       setInputs(arr);
     } else {
-      setInputs((values) => [...values, mainProduct]);
+      setInputs((values) => [mainProduct, ...values]);
     }
-
   }
 
   return (
@@ -105,5 +105,5 @@ MainProductItem.propTypes = {
   activeMain: PropTypes.string,
   inputs: PropTypes.array.isRequired,
   setInputs: PropTypes.func.isRequired,
-  triggerChildEffect: PropTypes.bool.isRequired
+  triggerChildEffect: PropTypes.bool.isRequired,
 };
