@@ -60,6 +60,8 @@ export default function MainProductItem({
        * Product quantity depending on user input
        * If it does not exist it will add the main product to
        * array state
+       * currently you need to change it to anything but 1 for it to work
+       * will need further improvements
        */
     } else if (findIndex !== -1) {
       arr[findIndex] = { ...arr[findIndex], ["quantity"]: parseInt(value) };
