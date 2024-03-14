@@ -3,8 +3,12 @@ import "../styles/navbar.css";
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faCartShopping, faUserNinja } from "@fortawesome/free-solid-svg-icons";
 import GlobalContext from "../GlobalContext";
+import {
+  faBars,
+  faCartShopping,
+  faUserNinja,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Navbar({ onLoginClick }) {
   const {loggedIn} = useContext(GlobalContext);
@@ -21,6 +25,9 @@ function Navbar({ onLoginClick }) {
     setActiveMenu(!activeMenu);
   }
 
+  const handleActiveClassName = ({ isActive }) =>
+    "" + (isActive ? "active" : "");
+
   return (
     <nav>
       <div className="navbar-top">
@@ -30,9 +37,15 @@ function Navbar({ onLoginClick }) {
           </h1>
         </Link>
         <div className="nav-right">
-          <NavLink to="/shop" activeClassName="active">SHOP</NavLink>
-          <NavLink to="/docs" activeClassName="active">DOCS</NavLink>
-          <NavLink to="/apps" activeClassName="active">APPSTORE</NavLink>
+          <NavLink to="/shop" className={handleActiveClassName}>
+            SHOP
+          </NavLink>
+          <NavLink to="/docs" className={handleActiveClassName}>
+            DOCS
+          </NavLink>
+          <NavLink to="/apps" className={handleActiveClassName}>
+            APPSTORE
+          </NavLink>
           <NavLink to="/cart" className="navbar-icon">
             <FontAwesomeIcon icon={faCartShopping} />
           </NavLink>
@@ -47,7 +60,11 @@ function Navbar({ onLoginClick }) {
           
         </div>
         <div className="mobile-nav-right">
-          <NavLink to="/cart" className="navbar-icon" onClick={()=> setActiveMenu(false)}>
+          <NavLink
+            to="/cart"
+            className="navbar-icon"
+            onClick={() => setActiveMenu(false)}
+          >
             <FontAwesomeIcon icon={faCartShopping} />
           </NavLink>
           <button onClick={handleDropdownMenu}>

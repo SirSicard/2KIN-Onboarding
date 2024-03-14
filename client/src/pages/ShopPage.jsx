@@ -11,7 +11,11 @@ export default function ShopPage() {
   const { setCart, cart } = useContext(GlobalContext);
   const clonedProduct = structuredClone(product);
   const [products, setProducts] = useState(clonedProduct);
-
+  /**
+   * Triggers child useEffect after parent useEffect
+   * https://stackoverflow.com/questions/76083871/how-to-make-parent-useeffect-hook-execute-before-child-useeffect
+   */
+  const [triggerChildEffect, setTriggerChildEffect] = useState(false);
   const findMainProductIndex = products.findIndex((item) =>
     item.name.includes("2KIN")
   );
@@ -19,7 +23,6 @@ export default function ShopPage() {
   const mainProduct = products[findMainProductIndex];
   /*Start the inputs state with mainProduct */
   const [inputs, setInputs] = useState([mainProduct]);
-  console.log(inputs);
 
   /**
    * Set the inputs state to the cart if 
@@ -31,6 +34,7 @@ export default function ShopPage() {
   useEffect(() => {
     if (cart.length >= 1) {
       setInputs(cart);
+      setTriggerChildEffect(!triggerChildEffect)
     }
   }, []);
 
@@ -53,6 +57,7 @@ export default function ShopPage() {
           inputs={inputs}
           setInputs={setInputs}
           mainProduct={mainProduct}
+          triggerChildEffect={triggerChildEffect}
         />
         {/* Maps out all products except for the "main product" */}
         {products
