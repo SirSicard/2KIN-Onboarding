@@ -19,6 +19,8 @@ mist = "~> 0.17"
 gleam_json = "~> 1.0"
 envoy = "~> 1.0"
 argv = "~> 1.0"
+gleam_http = "~> 3.6"
+gleam_erlang = "~> 0.24"
 
 [dev-dependencies]
 gleeunit = "~> 1.0"

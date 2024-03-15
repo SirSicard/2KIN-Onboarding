@@ -1,11 +1,12 @@
-import gleam/io
+import gleam/erlang/process
 import gleam/json
 import gleam/result
 import gleam/int
 import gleam/list
+import gleam/http
 import envoy
-import wisp.{type Request, type Response}
 import mist
+import wisp
 
 pub fn main() {
   let port =
@@ -22,8 +23,7 @@ pub fn main() {
     |> mist.new
     |> mist.port(port)
     |> mist.start_http
-
-  io.println("Listening on localhost:" <> int.to_string(port))
+  process.sleep_forever()
 }
 
 fn middleware(req, router) {
@@ -36,80 +36,47 @@ fn middleware(req, router) {
 fn router(req) {
   use req <- middleware(req)
   case wisp.path_segments(req) {
-    ["/categories"] -> categories(req)
-    ["/categories", slug] -> category(req, slug)
+    ["categories"] -> categories(req)
+    ["categories", slug] -> category(req, slug)
     _ -> wisp.not_found()
   }
 }
 
-fn categories(req) {
+fn mock_category(n) {
   let string = json.string(_)
-  let categories = [
-    [
-      #("name", string("Kategori 1")),
-      #("slug", string("kategori-1")),
-      #(
-        "description",
-        string("Lorem ipsum dolor sit amet, consectetur adipiscing elit."),
+  [
+    #("name", string("Kategori " <> n)),
+    #("slug", string("kategori-" <> n)),
+    #(
+      "description",
+      string(
+        "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       ),
-    ],
-    [
-      #("name", string("Kategori 2")),
-      #("slug", string("kategori-2")),
-      #(
-        "description",
-        string(
-          "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        ),
-      ),
-    ],
-    [
-      #("name", string("Kategori 3")),
-      #("slug", string("kategori-3")),
-      #(
-        "description",
-        string(
-          "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        ),
-      ),
-    ],
-    [
-      #("name", string("Kategori 4")),
-      #("slug", string("kategori-4")),
-      #(
-        "description",
-        string(
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        ),
-      ),
-    ],
-    [
-      #("name", string("Kategori 5")),
-      #("slug", string("kategori-5")),
-      #(
-        "description",
-        string(
-          "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        ),
-      ),
-    ],
-    [
-      #("name", string("Kategori 6")),
-      #("slug", string("kategori-6")),
-      #(
-        "description",
-        string(
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor voluptate autem vero aspernatur, veniam, Provident porro doloremque laudantium sint maiores deleniti iure, voluptates iusto vero.",
-        ),
-      ),
-    ],
+    ),
   ]
+}
+
+fn categories(req) {
+  use <- wisp.require_method(req, http.Get)
+
   let response =
-    json.preprocessed_array(list.map(categories, json.object))
+    list.range(1, 6)
+    |> list.map(int.to_string)
+    |> list.map(mock_category)
+    |> list.map(json.object)
+    |> json.preprocessed_array
     |> json.to_string_builder
+
   wisp.json_response(response, 200)
 }
 
 fn category(req, slug) {
-  todo
+  use <- wisp.require_method(req, http.Get)
+
+  let response =
+    mock_category(slug)
+    |> json.object
+    |> json.to_string_builder
+
+  wisp.json_response(response, 200)
 }
