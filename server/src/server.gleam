@@ -66,7 +66,7 @@ fn router(req) {
 }
 
 fn mock_category(n) {
-  let string = json.string(_)
+  let string = json.string
   [
     #("name", string("Kategori " <> n)),
     #("slug", string("kategori-" <> n)),
