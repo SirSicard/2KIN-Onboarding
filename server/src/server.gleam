@@ -4,6 +4,7 @@ import gleam/result
 import gleam/int
 import gleam/list
 import gleam/http
+import gluid
 import envoy
 // http listener library
 import mist
@@ -27,13 +28,10 @@ pub fn main() {
     // we can see this as the default value and makes sure the variable port 
     // is always an Int
     |> result.unwrap(3001)
-
   // enable the logger for wisp
   wisp.configure_logger()
-
   // idk
   let secret_base_key = wisp.random_string(64)
-
   let assert Ok(_) =
     // lets the web framwork know which function is our router or request handler
     wisp.mist_handler(router, secret_base_key)
@@ -43,7 +41,6 @@ pub fn main() {
     |> mist.port(port)
     // start listening on that port
     |> mist.start_http
-
   // makes sure the program keeps running instead of ending right after we 
   // start the listener, this way we can keep handling requests forever
   process.sleep_forever()
@@ -61,6 +58,7 @@ fn router(req) {
   case wisp.path_segments(req) {
     ["categories"] -> categories(req)
     ["categories", slug] -> category(req, slug)
+    ["products"] -> products(req)
     _ -> wisp.not_found()
   }
 }
@@ -79,9 +77,33 @@ fn mock_category(n) {
   ]
 }
 
+fn mock_product(n) {
+  let string = json.string
+  let gluid = gluid.guidv4()
+  case n {
+    "1" -> {
+      [
+        #("id", string(gluid)),
+        #("name", string("2KIN product")),
+        #("product-image", string("https://via.placeholder.com/600x425")),
+        #("stock", json.int(99)),
+        #("price", json.float(20.0)),
+      ]
+    }
+    _ -> {
+      [
+        #("id", string(gluid)),
+        #("name", string("Extra " <> n)),
+        #("product-image", string("https://via.placeholder.com/600x425")),
+        #("stock", json.int(99)),
+        #("price", json.float(10.0)),
+      ]
+    }
+  }
+}
+
 fn categories(req) {
   use <- wisp.require_method(req, http.Get)
-
   let response =
     list.range(1, 6)
     |> list.map(int.to_string)
@@ -89,17 +111,26 @@ fn categories(req) {
     |> list.map(json.object)
     |> json.preprocessed_array
     |> json.to_string_builder
-
   wisp.json_response(response, 200)
 }
 
 fn category(req, slug) {
   use <- wisp.require_method(req, http.Get)
-
   let response =
     mock_category(slug)
     |> json.object
     |> json.to_string_builder
+  wisp.json_response(response, 200)
+}
 
+fn products(req) {
+  use <- wisp.require_method(req, http.Get)
+  let response =
+    list.range(1, 3)
+    |> list.map(int.to_string)
+    |> list.map(mock_product)
+    |> list.map(json.object)
+    |> json.preprocessed_array
+    |> json.to_string_builder
   wisp.json_response(response, 200)
 }
