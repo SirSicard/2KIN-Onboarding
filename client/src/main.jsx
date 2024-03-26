@@ -2,12 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage.jsx";
 import ShopPage from "./pages/ShopPage.jsx";
@@ -25,27 +20,73 @@ import BillingPage from "./pages/dashboard/BillingPage.jsx";
 import AppDetailsPage from "./pages/AppDetailsPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<App />}>
-      <Route index element={<LandingPage />} />
-      <Route path="shop" element={<ShopPage />} />
-      <Route path="docs" element={<DocumentationPage />} />
-      <Route path="cart" element={<CartPage />} />
-      <Route path="docs/:id" element={<DocsCategoryPage />} />
-      <Route path="apps" element={<AppstorePage />} />
-      <Route path="apps/:id" element={<AppDetailsPage />} />
-      <Route path="register" element={<RegisterPage />} />
-      <Route path="user" element={<UserDashboard />}>
-        <Route path="add-product" element={<AddProduct />} default={true} />
-        <Route path="shop-history" element={<ShopHistory />} />
-        <Route path="profile" element={<UserProfile />} />
-        <Route path="billing" element={<BillingPage />} />
-      </Route>
-      <Route path="checkout" element={<CheckoutPage />} />
-    </Route>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <LandingPage />,
+      },
+      {
+        path: "/shop",
+        element: <ShopPage />,
+      },
+      {
+        path: "/docs",
+        element: <DocumentationPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
+      },
+      {
+        path: "/docs/:id",
+        element: <DocsCategoryPage />,
+      },
+      {
+        path: "/apps",
+        element: <AppstorePage />,
+      },
+      {
+        path: "/apps/:id",
+        element: <AppDetailsPage />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "/checkout",
+        element: <CheckoutPage />,
+      },
+      {
+        path: "/user",
+        element: <UserDashboard />,
+        children: [
+          {
+            path: "/user/add-product",
+            element: <AddProduct />,
+            default: true,
+          },
+          {
+            path: "/user/shop-history",
+            element: <ShopHistory />,
+          },
+          {
+            path: "/user/profile",
+            element: <UserProfile />,
+          },
+          {
+            path: "/user/billing",
+            element: <BillingPage />,
+          },
+        ],
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
