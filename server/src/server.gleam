@@ -25,7 +25,7 @@ pub fn main() {
     // https://en.wikipedia.org/wiki/Radix#In_numeral_systems
     |> result.try(int.base_parse(_, 10))
     // if something went wrong in any of the steps above, set the port to 3001
-    // we can see this as the default value and makes sure the variable port 
+    // we can see this as the default value and makes sure the variable port
     // is always an Int
     |> result.unwrap(3001)
   // enable the logger for wisp
@@ -41,7 +41,7 @@ pub fn main() {
     |> mist.port(port)
     // start listening on that port
     |> mist.start_http
-  // makes sure the program keeps running instead of ending right after we 
+  // makes sure the program keeps running instead of ending right after we
   // start the listener, this way we can keep handling requests forever
   process.sleep_forever()
 }
@@ -57,23 +57,43 @@ fn router(req) {
   use req <- middleware(req)
   case wisp.path_segments(req) {
     ["categories"] -> categories(req)
-    ["categories", slug] -> category(req, slug)
+    ["categories", slug] -> articles(req, slug)
     ["products"] -> products(req)
     _ -> wisp.not_found()
   }
 }
 
-fn mock_category(n) {
+pub fn mock_category(n) {
   let string = json.string
+  let id = gluid.guidv4()
   [
-    #("name", string("Kategori " <> n)),
-    #("slug", string("kategori-" <> n)),
+    #("id", string(id)),
+    #("title", string("Category" <> n)),
     #(
-      "description",
+      "snippet",
       string(
         "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       ),
     ),
+    #("image", string("image path")),
+    #("slug", string(id)),
+  ]
+}
+
+pub fn mock_article(category_id) {
+  let string = json.string
+  let id = gluid.guidv4()
+  [
+    #("id", string(id)),
+    #("category_id", string(category_id)),
+    #("name", string("Article")),
+    #(
+      "content",
+      string(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+      ),
+    ),
+    #("image", string("image_path")),
   ]
 }
 
@@ -104,6 +124,8 @@ fn mock_product(n) {
 
 fn categories(req) {
   use <- wisp.require_method(req, http.Get)
+  wisp.set_header
+
   let response =
     list.range(1, 6)
     |> list.map(int.to_string)
@@ -111,16 +133,32 @@ fn categories(req) {
     |> list.map(json.object)
     |> json.preprocessed_array
     |> json.to_string_builder
+
   wisp.json_response(response, 200)
 }
 
 fn category(req, slug) {
   use <- wisp.require_method(req, http.Get)
+
   let response =
     mock_category(slug)
     |> json.object
     |> json.to_string_builder
+
   wisp.json_response(response, 200)
+}
+
+fn articles(req, slug) {
+  use <- wisp.require_method(req, http.Get)
+
+  let res =
+    list.repeat(slug, times: 5)
+    |> list.map(mock_article)
+    |> list.map(json.object)
+    |> json.preprocessed_array
+    |> json.to_string_builder
+
+  wisp.json_response(res, 200)
 }
 
 fn products(req) {
