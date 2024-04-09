@@ -125,7 +125,6 @@ fn mock_product(n) {
 fn categories(req) {
   use <- wisp.require_method(req, http.Get)
   wisp.set_header
-
   let response =
     list.range(1, 6)
     |> list.map(int.to_string)
@@ -133,31 +132,28 @@ fn categories(req) {
     |> list.map(json.object)
     |> json.preprocessed_array
     |> json.to_string_builder
-
   wisp.json_response(response, 200)
 }
 
-fn category(req, slug) {
-  use <- wisp.require_method(req, http.Get)
+// fn category(req, slug) {
+//   use <- wisp.require_method(req, http.Get)
 
-  let response =
-    mock_category(slug)
-    |> json.object
-    |> json.to_string_builder
+//   let response =
+//     mock_category(slug)
+//     |> json.object
+//     |> json.to_string_builder
 
-  wisp.json_response(response, 200)
-}
+//   wisp.json_response(response, 200)
+// }
 
 fn articles(req, slug) {
   use <- wisp.require_method(req, http.Get)
-
   let res =
     list.repeat(slug, times: 5)
     |> list.map(mock_article)
     |> list.map(json.object)
     |> json.preprocessed_array
     |> json.to_string_builder
-
   wisp.json_response(res, 200)
 }
 
