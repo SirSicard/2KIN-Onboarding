@@ -4,14 +4,26 @@ import gleam/result
 import gleam/int
 import gleam/list
 import gleam/http
+import gleam/pgo
+import gleam/option
+import gleam/dynamic
+import gleam/atom
+import dot_env
+import dot_env/env
 import gluid
 import envoy
 // http listener library
 import mist
 // web framework for handling requests and responses
 import wisp
+import gleam/io
+
+pub type Context {
+  Context(db: pgo.Connection)
+}
 
 pub fn main() {
+  dot_env.load()
   // get the port from the environment, if not present use 3001 as default
   let port =
     // this tries to get the environment variable named PORT
@@ -32,9 +44,29 @@ pub fn main() {
   wisp.configure_logger()
   // idk
   let secret_base_key = wisp.random_string(64)
+  let db_host = result.unwrap(env.get("DB_HOST"), "localhost")
+  let db_port = result.unwrap(env.get_int("DB_PORT"), 3306)
+  let db_user = result.unwrap(env.get("DB_USER"), "postgres")
+  let db_pass = option.from_result(env.get("DB_PASS"))
+  let db_name = result.unwrap(env.get("DB_NAME"), "postgres")
+  io.debug(db_name)
+  io.debug(db_port)
+  let db_connection =
+    pgo.connect(
+      pgo.Config(
+        ..pgo.default_config(),
+        host: db_host,
+        port: db_port,
+        database: db_name,
+        user: db_user,
+        password: db_pass,
+      ),
+    )
+  let context = Context(db: db_connection)
+  let handler = router(_, context)
   let assert Ok(_) =
     // lets the web framwork know which function is our router or request handler
-    wisp.mist_handler(router, secret_base_key)
+    wisp.mist_handler(handler, secret_base_key)
     // creates a new http listener with our web framework and our router
     |> mist.new
     // sets the port to listen to
@@ -53,12 +85,12 @@ fn middleware(req, router) {
   router(req)
 }
 
-fn router(req) {
+fn router(req, context: Context) {
   use req <- middleware(req)
   case wisp.path_segments(req) {
     ["categories"] -> categories(req)
     ["categories", slug] -> articles(req, slug)
-    ["products"] -> products(req)
+    ["products"] -> get_products(req, context)
     _ -> wisp.not_found()
   }
 }
@@ -119,6 +151,44 @@ fn mock_product(n) {
         #("price", json.float(10.0)),
       ]
     }
+  }
+}
+
+fn get_products(req, context: Context) -> wisp.Response {
+  use <- wisp.require_method(req, http.Get)
+  let all_products =
+    "
+    select * from products
+  "
+  let product_types =
+    dynamic.tuple5(
+      dynamic.string,
+      dynamic.string,
+      dynamic.string,
+      dynamic.int,
+      dynamic.float,
+    )
+  let response = pgo.execute(all_products, context.db, [], product_types)
+  let json_conversion = {
+    use products <- result.try(response)
+    io.debug(products.rows)
+    Ok(
+      json.to_string_builder(
+        json.array(products.rows, fn(product) {
+          json.object([
+            #("id", json.string(product.0)),
+            #("name", json.string(product.1)),
+            #("product_image", json.string(product.2)),
+            #("stock", json.int(product.3)),
+            #("price", json.float(product.4)),
+          ])
+        }),
+      ),
+    )
+  }
+  case json_conversion {
+    Ok(json) -> wisp.json_response(json, 201)
+    Error(_) -> wisp.internal_server_error()
   }
 }
 
