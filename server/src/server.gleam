@@ -15,7 +15,6 @@ import envoy
 import mist
 // web framework for handling requests and responses
 import wisp
-import gleam/io
 
 pub type Context {
   Context(db: pgo.Connection)
@@ -155,11 +154,14 @@ fn mock_product(n) {
 fn get_products(req, context: Context) -> wisp.Response {
   use <- wisp.require_method(req, http.Get)
   // This is a simple sql query to get all the products
+  // Because of the * symbol it will return all of the columns in product. 
+  // And in their current order
   let all_products =
     "
     select * from products
   "
   // This is what the returned types of selected products "fields/columns" are.
+  //ex. name: is of type string(varchar) so "dynamic.string"
   let product_types =
     dynamic.tuple5(
       dynamic.string,
