@@ -7,7 +7,6 @@ import gleam/http
 import gleam/pgo
 import gleam/option
 import gleam/dynamic
-import gleam/atom
 import dot_env
 import dot_env/env
 import gluid
@@ -49,8 +48,7 @@ pub fn main() {
   let db_user = result.unwrap(env.get("DB_USER"), "postgres")
   let db_pass = option.from_result(env.get("DB_PASS"))
   let db_name = result.unwrap(env.get("DB_NAME"), "postgres")
-  io.debug(db_name)
-  io.debug(db_port)
+  // connects to your database.
   let db_connection =
     pgo.connect(
       pgo.Config(
@@ -156,10 +154,12 @@ fn mock_product(n) {
 
 fn get_products(req, context: Context) -> wisp.Response {
   use <- wisp.require_method(req, http.Get)
+  // This is a simple sql query to get all the products
   let all_products =
     "
     select * from products
   "
+  // This is what the returned types of selected products "fields/columns" are.
   let product_types =
     dynamic.tuple5(
       dynamic.string,
@@ -168,10 +168,12 @@ fn get_products(req, context: Context) -> wisp.Response {
       dynamic.int,
       dynamic.float,
     )
+  // This is the response from the database. "context.db" is the connection to the database.
   let response = pgo.execute(all_products, context.db, [], product_types)
+  //This converts the respone to json object.
   let json_conversion = {
     use products <- result.try(response)
-    io.debug(products.rows)
+    // return we are looking for of "products" is products.rows which returns an array of tuples
     Ok(
       json.to_string_builder(
         json.array(products.rows, fn(product) {
