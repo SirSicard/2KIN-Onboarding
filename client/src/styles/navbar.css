@@ -13,6 +13,21 @@ nav > .navbar-top {
   background-color: var(--main-bg-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1;
+
+    height: 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.5s ease;
+}
+
+.show {
+  transform: translateY(0);
+}
+
+.hide {
+  transform: translateY(-100%);
 }
 .navbar-icon {
   font-size: 1.5em;

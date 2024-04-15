@@ -5,36 +5,80 @@
     font-size: 60px;
 }
 
-.hero-description {
-    width: 80%;
-    max-width: 600px;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 52vh;
-}
 
 .hero-buy {
     display: flex;
+    padding-top: 5vw;
+    opacity: 0.9;
+
+}
+
+
+
+.hero-image {
+    background-image: url(../images/hero-stock-placeholder.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.hero-image::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-image h1 {
+    color: white;
+    font-size: 60px;
+    padding-top: 5vw;
+    opacity: 0.9;
+}
+
+.hero-image .hero-description {
+    color: white;
+    font-size: 20px;
+    padding-top: 5vw;
+    max-width: 50%;
+    margin: 0 20px;
+    opacity: 0.9;
+}
+
+.hero-image .hero-buy {
+width: 100%;
+    display: flex;
     justify-content: center;
-    padding: 10px 20px;
+    align-items: center;
+    padding-top: 5vw;
+    margin: 0 20px;
+    opacity: 0.9;
 }
 
 .hero-buy button {
-    display: flex;
-    justify-content: center;
-    border-radius: 20px;
-    text-align: center;
     padding: 12px 40px;
-    border: 0;
     font-size: 16px;
-}
-
-.hero-image {
-    height: 100vh;
-    background-image: url(../images/hero-stock-placeholder.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 @media (max-width: 1200px) {

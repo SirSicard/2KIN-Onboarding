@@ -1,33 +1,62 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import "../styles/navbar.css";
-import PropTypes from "prop-types";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import '../styles/navbar.css';
+import PropTypes from 'prop-types';
+import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
   faCartShopping,
   faUserNinja,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
+import { motion } from 'framer-motion';
 
 function Navbar({ onLoginClick }) {
   const navigate = useNavigate();
-
+  const [activeMenu, setActiveMenu] = useState(false);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
   const handleDashboardClick = () => {
-    navigate("/user/add-product");
+    navigate('/user/add-product');
   };
 
-  const [activeMenu, setActiveMenu] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScrollTop > lastScrollTop) {
+        setShowNavbar(false); // Scrolling down
+      } else {
+        setShowNavbar(true); // Scrolling up
+      }
+
+      setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollTop]);
+
+  console.log(showNavbar);
 
   function handleDropdownMenu() {
     setActiveMenu(!activeMenu);
   }
 
   const handleActiveClassName = ({ isActive }) =>
-    "" + (isActive ? "active" : "");
+    '' + (isActive ? 'active' : '');
 
   return (
     <nav>
-      <div className="navbar-top">
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: showNavbar ? 0 : -100 }}
+   
+        transition={{ duration: 0.2, delay: 0.2 }}
+        className={`navbar-top navbar ${showNavbar ? 'show' : 'hide'}`}
+      >
+        {/* <div className="navbar-top"> */}
         <Link to="/">
           <h1 className="Logo" onClick={() => setActiveMenu(false)}>
             2kin
@@ -68,7 +97,8 @@ function Navbar({ onLoginClick }) {
             <FontAwesomeIcon icon={faBars} />
           </button>
         </div>
-      </div>
+      </motion.div>
+      {/* </div> */}
       {activeMenu && (
         <div className="dropdown-menu">
           <NavLink onClick={handleDropdownMenu} to="/shop">
