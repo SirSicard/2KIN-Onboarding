@@ -1,20 +1,21 @@
 @import "../index.css";
 
 nav > .navbar-top {
-  height: 60px;
-  padding: 0 10px 0 10px;
+  height: 6em;
+  padding: 0 2em;
+  font-size: 1.4em;
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
   position: fixed;
   width: 100%;
   background-color: var(--main-bg-color);
-  margin-bottom: 60px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 .navbar-icon {
-  font-size: x-large;
+  font-size: 1.5em;
 }
 
 .mobile-nav-right {
@@ -34,16 +35,15 @@ nav > .navbar-top {
 
 
 nav .nav-login-btn {
-  padding: 4px 8px;
-  border: 2px solid var(--button-bg-color);
+  padding: 8px 20px;
+  margin: 0 20px;
+  display: inline-block;
+  outline: none;
+  border: 1px solid var(--button-bg-color);
   border-radius: 4px;
   color: var(--button-bg-color);
 }
 
-nav .nav-login-btn:hover {
-  border-color: var(--button-hover-color);
-  color: var(--button-hover-color);
-}
 
 .dropdown-menu {
   display: none;
