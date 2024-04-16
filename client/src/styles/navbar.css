@@ -1,7 +1,7 @@
 @import "../index.css";
 
 nav > .navbar-top {
-  height: 6em;
+  height: 5em;
   padding: 0 2em;
   font-size: 1.4em;
   font-weight: 500;
@@ -11,15 +11,25 @@ nav > .navbar-top {
   position: fixed;
   width: 100%;
   background-color: var(--main-bg-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1;
+  transition: transform 0.2s ease;
 
-    height: 60px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  transition: transform 0.5s ease;
+}
+
+.logo{
+  position: relative;
+  width: 100px;
+  height: 100px;
+
+}
+
+.logo img {
+  position: absolute;
+  top: 10px;
+  width: 120%;
+  height: 100%;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  overflow: hidden;
 }
 
 .show {

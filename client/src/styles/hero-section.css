@@ -1,17 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 .hero-title {
     text-align: center;
-    margin-top: 0;
     padding-top: 5vw;
-    font-size: 60px;
+    font-size: 46px;
+    color: rgb(231, 231, 231);
 }
 
 
-.hero-buy {
-    display: flex;
-    padding-top: 5vw;
-    opacity: 0.9;
+.hero-description p{
+    width: 100%;
+    max-width: 60%;
+
+    color: rgb(241, 241, 241);
+   font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+    padding-top: 4vw;
+    margin: 0 auto;
+    font-size: 28px;
 
 }
+
+
+.hero-description span{
+    font-weight: 700;
+    font-size: 42px;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+
 
 
 
@@ -42,6 +63,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+
 }
 
 .hero-image h1 {
@@ -51,22 +78,14 @@
     opacity: 0.9;
 }
 
-.hero-image .hero-description {
-    color: white;
-    font-size: 20px;
-    padding-top: 5vw;
-    max-width: 50%;
-    margin: 0 20px;
-    opacity: 0.9;
-}
 
 .hero-image .hero-buy {
 width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5vw;
-    margin: 0 20px;
+    padding-top: 4rem;
+    /* margin: 0 20px; */
     opacity: 0.9;
 }
 
@@ -81,88 +100,55 @@ width: 100%;
     transition: background-color 0.3s;
 }
 
-@media (max-width: 1200px) {
+    @media screen and (max-width: 1200px) {
     .hero-title {
-        padding-top: 14vh;
-        font-size: 60px;
+        /* padding-top: 14vh; */
+        /* padding: 22px; */
+        font-size: 28px;
     }
 
-    .hero-description {
-        width: 90%;
-        padding-top: 45vh;
+    .hero-description p {
+       font-size: 18px;
+    }
     }
 
-    .hero-buy button {
+        @media screen and (max-width: 600px) {
+    .hero-title {
+        padding: 14% 0 0 0;
+        font-size: 22px;
+    }
+
+    .hero-description p {
+       font-size: 14px;
+    }
+
+    /* .hero-buy button {
         padding: 12px 40px;
         font-size: 16px;
-    }
+    } */
 }
 
-@media (max-width: 800px) {
+
+
+
+
+
+/* between 400px and 300px */
+
+@media screen and (max-width: 400px) {
     .hero-title {
         padding-top: 14vh;
-        font-size: 60px;
-    }
-
-    .hero-description {
-        width: 90%;
-        padding-top: 45vh;
-    }
-
-    .hero-buy button {
-        padding: 12px 40px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero-title {
-        padding-top: 14vh;
-        font-size: 60px;
-    }
-
-    .hero-description {
-        width: 90%;
-        padding-top: 42vh;
-    }
-
-    .hero-buy button {
-        padding: 12px 40px;
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 500px) {
-    .hero-title {
-        padding-top: 14vh;
-        font-size: 60px;
+        font-size: 22px;
+        text-wrap: wrap;
     }
     
     .hero-description {
         width: 90%;
-        padding-top: 32vh;
+        /* padding-top: 22vh; */
     }
     
     .hero-buy button {
-        padding: 12px 40px;
+        /* padding: 52px 40px; */
         font-size: 16px;
     }
-}
-
-    @media (max-height: 700px) {
-        .hero-title {
-            padding-top: 4vh;
-            font-size: 60px;
-        }
-        
-        .hero-description {
-            width: 90%;
-            padding-top: 22vh;
-        }
-        
-        .hero-buy button {
-            padding: 12px 40px;
-            font-size: 16px;
-        }
-    
 }

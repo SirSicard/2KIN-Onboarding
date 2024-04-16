@@ -22,12 +22,12 @@ function Navbar({ onLoginClick }) {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
+       window.scrollY || document.documentElement.scrollTop;
 
       if (currentScrollTop > lastScrollTop) {
-        setShowNavbar(false); // Scrolling down
+        setShowNavbar(false); 
       } else {
-        setShowNavbar(true); // Scrolling up
+        setShowNavbar(true);
       }
 
       setLastScrollTop(currentScrollTop <= 0 ? 0 : currentScrollTop);
@@ -38,7 +38,6 @@ function Navbar({ onLoginClick }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollTop]);
 
-  console.log(showNavbar);
 
   function handleDropdownMenu() {
     setActiveMenu(!activeMenu);
@@ -52,25 +51,27 @@ function Navbar({ onLoginClick }) {
       <motion.div
         initial={{ y: -100 }}
         animate={{ y: showNavbar ? 0 : -100 }}
-   
         transition={{ duration: 0.2, delay: 0.2 }}
         className={`navbar-top navbar ${showNavbar ? 'show' : 'hide'}`}
       >
         {/* <div className="navbar-top"> */}
         <Link to="/">
-          <h1 className="Logo" onClick={() => setActiveMenu(false)}>
-            2kin
-          </h1>
+          <div className="logo" onClick={() => setActiveMenu(false)}>
+            <img src="./logo1.jpg" alt="" />
+          </div>
         </Link>
         <div className="nav-right">
+          <NavLink to="/" className={handleActiveClassName}>
+            Home
+          </NavLink>
           <NavLink to="/shop" className={handleActiveClassName}>
-            SHOP
+            Shop
           </NavLink>
           <NavLink to="/docs" className={handleActiveClassName}>
-            DOCS
+            Docs
           </NavLink>
           <NavLink to="/apps" className={handleActiveClassName}>
-            APPSTORE
+            App store
           </NavLink>
           <NavLink to="/cart" className="navbar-icon">
             <FontAwesomeIcon icon={faCartShopping} />
