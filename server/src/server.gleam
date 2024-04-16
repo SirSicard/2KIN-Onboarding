@@ -42,6 +42,9 @@ pub fn main() {
   wisp.configure_logger()
   // idk
   let secret_base_key = wisp.random_string(64)
+  // enviroment variables from the env file
+  // the unwrap means that it either gets the env variabel or default set value
+  // such as instead of getting my DB_PORT it will get the default set: 3306 port.
   let db_host = result.unwrap(env.get("DB_HOST"), "localhost")
   let db_port = result.unwrap(env.get_int("DB_PORT"), 3306)
   let db_user = result.unwrap(env.get("DB_USER"), "postgres")
@@ -59,6 +62,8 @@ pub fn main() {
         password: db_pass,
       ),
     )
+  // Context is where the actual connection to the database happens. 
+  // this type is then later use for every "execution" of the sql queries. 
   let context = Context(db: db_connection)
   let handler = router(_, context)
   let assert Ok(_) =
@@ -198,7 +203,6 @@ fn get_products(req, context: Context) -> wisp.Response {
 
 fn categories(req) {
   use <- wisp.require_method(req, http.Get)
-  wisp.set_header
   let response =
     list.range(1, 6)
     |> list.map(int.to_string)
