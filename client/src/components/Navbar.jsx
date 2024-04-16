@@ -1,7 +1,7 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../styles/navbar.css';
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBars,
@@ -15,6 +15,30 @@ function Navbar({ onLoginClick }) {
   const [activeMenu, setActiveMenu] = useState(false);
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
+  const dropdownRef = useRef(null);
+
+  
+  
+  useEffect(() => {
+    
+    
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setActiveMenu(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+    
+    
+  }, [activeMenu]);
+  
+  
+  
+  
   const handleDashboardClick = () => {
     navigate('/user/add-product');
   };
@@ -57,7 +81,7 @@ function Navbar({ onLoginClick }) {
         {/* <div className="navbar-top"> */}
         <Link to="/">
           <div className="logo" onClick={() => setActiveMenu(false)}>
-            <img src="./logo1.jpg" alt="" />
+            <img src="/logo1.jpg" alt="" />
           </div>
         </Link>
         <div className="nav-right">
@@ -99,9 +123,22 @@ function Navbar({ onLoginClick }) {
           </button>
         </div>
       </motion.div>
-      {/* </div> */}
+
+      <div className="overlay" 
+      onClick={() => setActiveMenu(false)}
+      ></div>
       {activeMenu && (
-        <div className="dropdown-menu">
+        <motion.div
+        ref={dropdownRef}
+        initial={{ x: 50 }}
+        animate={{ x: 50 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        whileInView={{ opacity: 1, x: 50 }}
+        className="dropdown-menu"
+        >
+          <div className="logo">
+            <img src="/logo1.jpg" alt="" />
+          </div>
           <NavLink onClick={handleDropdownMenu} to="/shop">
             SHOP
           </NavLink>
@@ -117,7 +154,7 @@ function Navbar({ onLoginClick }) {
           <NavLink href="#" onClick={onLoginClick}>
             LOGIN
           </NavLink>
-        </div>
+        </motion.div>
       )}
     </nav>
   );

@@ -17,18 +17,14 @@ nav > .navbar-top {
 }
 
 .logo{
-  position: relative;
   width: 100px;
   height: 100px;
 
 }
 
 .logo img {
-  position: absolute;
-  top: 10px;
   width: 120%;
-  height: 100%;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  height: 110%;
   overflow: hidden;
 }
 
@@ -70,36 +66,59 @@ nav .nav-login-btn {
 }
 
 
+
+
 .dropdown-menu {
   display: none;
+  
 }
-.navbar-top a.active { 
-  border-bottom: 1px solid black;
+/* overlay */
+.overlay {
+  position: fixed; /* Use fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 10; 
+   display: none;  
 }
 
-@media (max-width: 700px) {
-  .dropdown-menu {
-    top: 60px;
-    display: flex;
-    width: 100%;
-    position: fixed;
-    flex-flow: column wrap;
-    background-color: var(--main-bg-color);
-    align-self: center;
-    height: 100vh;
-    z-index: 1;
+@media (max-width: 800px) {
+
+ 
+.dropdown-menu{
+  display: flex;
+  position: fixed;
+  top: 0em;
+  right: 5em;
+  width: 250px;
+  height: 100%;
+  background-color: var(--main-bg-color);
+  flex-flow: column wrap;
+  z-index: 1;
+
   }
+  .dropdown-menu .logo {
+margin-left: 70px;
+margin-bottom: 62px;
+margin-top: 20px;
+
+  }
+
+  /*  */
   .dropdown-menu > a {
-    border-top: 1px solid;
-    height: 150px;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
+    padding: 20px 0;
+    border-bottom: 1px solid;
+    font-size: 1.5em;
+    font-weight: 500;
+    padding: 20px 20px;
+    color: var(--button-bg-color);
   }
   .dropdown-menu > a:last-child {
     border-bottom: 1px solid;
   }
+
   .navbar-top {
     display: flex;
   }
